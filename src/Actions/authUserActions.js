@@ -1,44 +1,51 @@
 import { AUTH_USER, CREATE_USER } from "./types";
 
 // USER CRUDDD
-export const createUser = (userCreateValues) => dispatch => {
-
+export const createUser = userCreateValues => dispatch => {
   fetch("http://localhost:3000/api/v1/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json"
     },
-    body: JSON.stringify(
-      {user: userCreateValues
-    })
-  })
+    body: JSON.stringify({ user: userCreateValues })
+  });
 };
 
-export const updateUser = (userCreateValues) => dispatch => {
+export const updateUser = userCreateValues => dispatch => {
+  fetch("http://localhost:3000/api/v1/users", {
+    method: "UPDATE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({ user: userCreateValues })
+  });
+};
 
-    fetch("http://localhost:3000/api/v1/users", {
-      method: "UPDATE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(
-        {user: userCreateValues
-      })
-    })
-  };
+export const deleteUser = userCreateValues => dispatch => {
+  fetch("http://localhost:3000/api/v1/users", {
+    method: "UPDATE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({ user: userCreateValues })
+  });
+};
 
-  export const deleteUser = (userCreateValues) => dispatch => {
-
-    fetch("http://localhost:3000/api/v1/users", {
-      method: "UPDATE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(
-        {user: userCreateValues
-      })
-    })
-  };
+//   log in userr
+export const logInUser = logInValues => dispatch => {
+  fetch("http://localhost:3000/api/v1/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({ auth: logInValues })
+  })
+    .then(r => r.json())
+    .then(user =>{
+        console.log(user.error)
+    });
+};
