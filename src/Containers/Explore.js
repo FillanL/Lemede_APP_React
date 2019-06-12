@@ -7,9 +7,6 @@ import CampaignCard from "../Componets/CampaignCard";
 import "../CssContainer/explore.css";
 
 class Explore extends Component {
-  //   componentWillMount() {
-  //     this.props.fetchCampaign();
-  //   }
 
   render() {
     console.log(this.props);

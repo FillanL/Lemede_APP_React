@@ -17,21 +17,76 @@ class CampaignShow extends Component {
   //     // this.campaignInfo();
   //   }
 
+  state = {
+    donateValue: "",
+    error: false
+  };
+
+  handInputChange = e => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleDonationSubmit = e => {
+    e.preventDefault();
+
+    if (
+      this.props.user &&
+      this.props.user.account_balance - this.state.donateValue < 0
+    ) {
+      this.setState({
+        ...this.state,
+        error: true,
+        errorMessage: "Insufficient Funds"
+      });
+    } else if (!this.props.user) {
+      this.setState({
+        ...this.state,
+        error: true,
+        errorMessage: "Must log in to Donate"
+      });
+    } else {
+      // back this project
+      fetch("http://localhost:3000/back_campaign", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          donate: this.state.donateValue,
+          user_id: this.props.user.id,
+          campaign_id: this.props.campaign.id
+        })
+      })
+        .then(r => r.json())
+        .then();
+
+      this.setState({
+        error: false,
+        donateValue: ""
+      });
+    }
+  };
   componentDidMount() {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
   }
   render() {
-      
+    console.log(this.props.user);
+    console.log(this.state.error);
     return (
       <div>
         {this.props.campaign && (
           <div>
-              <div className="card-img">
+            <div className="card-img" style={{ height: "400px" }}>
               <img
-            src="https://source.unsplash.com/user/markusspiske"
-            alt={this.props.campaign.id}/>
-              </div>
+                src="https://source.unsplash.com/user/markusspiske"
+                alt={this.props.campaign.id}
+              />
+            </div>
             <h1>{this.props.campaign.title}</h1>
             <p>Location:{this.props.campaign.location}</p>
             <p>${this.props.campaign.amount_funded.toLocaleString()}</p>
@@ -40,28 +95,32 @@ class CampaignShow extends Component {
               {this.props.campaign.description}
               <br />
               <br />
-              by: {this.props.campaign.creator.first_name} {  this.props.campaign.creator.last_name}
+              by: {this.props.campaign.creator.first_name}{" "}
+              {this.props.campaign.creator.last_name}
             </article>
-            <p>Backers: {this.props.campaign.funded_campaigns.length}
-            </p>
+            <p>Donations: {this.props.campaign.funded_campaigns.length}</p>
+            <p>Backers:</p>
+            {this.state.error ? (
+              <div>
+                {" "}
+                <h3 style={{ color: "red" }}>{this.state.errorMessage}</h3>
+              </div>
+            ) : null}
             <div className="donation-box">
-                <form>
-
-              <input
-                type="number"
-                min="1"
-                // onInput="validity.valid||(value='')"
-                placeholder="$10"
-              />
-              <button>Sumbit</button>
-
-                </form>
+              <form onSubmit={e => this.handleDonationSubmit(e)}>
+                <input
+                  type="number"
+                  min="1"
+                  onChange={e => this.handInputChange(e)}
+                  // onInput="validity.valid||(value='')"
+                  name="donateValue"
+                  placeholder="$10"
+                  value={this.state.donateValue}
+                />
+                <button>Sumbit</button>
+              </form>
             </div>
-            <div className="callab-box">
-                box 1
-                b2
-
-            </div>
+            <div className="callab-box">box 1 b2</div>
           </div>
         )}
       </div>
@@ -70,11 +129,11 @@ class CampaignShow extends Component {
 }
 
 const mapStateToProps = state => {
- 
   return {
     campaign: state.campaigns.campaigns.find(
       campaign => campaign.id === state.campaigns.selectedCampaign
-    )
+    ),
+    user: state.user.currentUser
   };
 };
 

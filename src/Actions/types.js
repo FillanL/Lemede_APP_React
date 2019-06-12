@@ -16,3 +16,4 @@ export const VALID_USER = "VALID_USER";
 export const SELECT_CAMPAIGN = "SELECT_CAMPAIGN"
 
 export const ADD_BALANCE = "ADD_BALANCE"
+
