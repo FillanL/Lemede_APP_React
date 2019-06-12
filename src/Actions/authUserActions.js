@@ -1,4 +1,4 @@
-import { AUTH_USER, REMOVE_USER, VALID_USER } from "./types";
+import { AUTH_USER, REMOVE_USER, VALID_USER, UPDATE_CAMPAIGNS } from "./types";
 
 // USER CRUDDD
 export const createUser = userCreateValues => dispatch => {
@@ -104,8 +104,38 @@ export const addAccountBalance = (id, amount) => dispatch => {
     })
   })
     .then(r => r.json())
-    .then(user => dispatch({
-      type:AUTH_USER,
-      payload: user
-    }));
+    .then(user =>
+      dispatch({
+        type: AUTH_USER,
+        payload: user
+      })
+    );
+};
+
+export const donationToCampaign = (
+  donateValue,
+  user_id,
+  campaign_id
+) => dispatch => {
+  fetch("http://localhost:3000/back_campaign", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      donate: donateValue,
+      user_id: user_id,
+      campaign_id: campaign_id
+    })
+  })
+    .then(r => r.json())
+    .then(items =>{
+      console.log(items)
+      dispatch({
+        type: UPDATE_CAMPAIGNS,
+        payload: items
+      })
+    }
+    );
 };

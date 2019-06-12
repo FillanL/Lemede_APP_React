@@ -1,4 +1,4 @@
-import { AUTH_USER , REMOVE_USER, VALID_USER, ADD_BALANCE} from "../Actions/types";
+import { AUTH_USER , REMOVE_USER, VALID_USER, ADD_BALANCE, UPDATE_CAMPAIGNS} from "../Actions/types";
 
 const initialState = {
   currentUser: null
@@ -30,6 +30,12 @@ export default function(state = initialState, action) {
         currentUser: action.payload,
         valid: true
       };
+      case UPDATE_CAMPAIGNS:
+          return {
+            ...state,
+            currentUser: action.payload.user,
+            valid: true
+          };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { selectCampaign } from "../Actions/campaignsActions";
-
+import { donationToCampaign } from "../Actions/authUserActions";
 class CampaignShow extends Component {
   // //    match a fetch request for each show page
   //     componentDidMount() {
@@ -49,21 +49,13 @@ class CampaignShow extends Component {
       });
     } else {
       // back this project
-      fetch("http://localhost:3000/back_campaign", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          donate: this.state.donateValue,
-          user_id: this.props.user.id,
-          campaign_id: this.props.campaign.id
-        })
-      })
-        .then(r => r.json())
-        .then();
-
+      this.props.donationToCampaign(
+        this.state.donateValue,
+        this.props.user.id,
+        this.props.campaign.id
+      );
+      this.props.selectCampaign(Number(this.props.match.params.id))
+      
       this.setState({
         error: false,
         donateValue: ""
@@ -74,6 +66,7 @@ class CampaignShow extends Component {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
   }
+
   render() {
     console.log(this.props.user);
     console.log(this.state.error);
@@ -89,8 +82,10 @@ class CampaignShow extends Component {
             </div>
             <h1>{this.props.campaign.title}</h1>
             <p>Location:{this.props.campaign.location}</p>
-            <p>${this.props.campaign.amount_funded.toLocaleString()}</p>
-            <p>${this.props.campaign.funding_goal.toLocaleString()}</p>
+            <p>
+              Donated: ${this.props.campaign.amount_funded.toLocaleString()}
+            </p>
+            <p>Goal: ${this.props.campaign.funding_goal.toLocaleString()}</p>
             <article>
               {this.props.campaign.description}
               <br />
@@ -129,15 +124,17 @@ class CampaignShow extends Component {
 }
 
 const mapStateToProps = state => {
+  // console.log("mapstate toprops", state)
   return {
     campaign: state.campaigns.campaigns.find(
       campaign => campaign.id === state.campaigns.selectedCampaign
     ),
     user: state.user.currentUser
   };
+
 };
 
 export default connect(
   mapStateToProps,
-  { selectCampaign }
+  { selectCampaign, donationToCampaign }
 )(CampaignShow);

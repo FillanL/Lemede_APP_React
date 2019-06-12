@@ -1,7 +1,8 @@
 import {
   FETCH_CAMPAIGNS,
   NEW_CAMPAIGN,
-  SELECT_CAMPAIGN
+  SELECT_CAMPAIGN, 
+  UPDATE_CAMPAIGNS
 } from "../Actions/types";
 
 
@@ -29,8 +30,8 @@ export default function (state = initialState, action) {
         ...state,
         selectedCampaign: action.payload
       }
-
-
+      case UPDATE_CAMPAIGNS:
+        return ({...state, campaigns: state.campaigns.map(camp => camp.id === action.payload.campaign.id ? action.payload.campaign : camp)})
       default:
         return state;
   }

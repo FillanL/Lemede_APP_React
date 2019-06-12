@@ -38,10 +38,6 @@ class IncreaseBalance extends Component {
             error:true
         })
     }
-
-
-
-    // this
   };
   render() {
     return (
