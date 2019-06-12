@@ -1,23 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import '../CssContainer/featuredCampaign.css'
+import { Link } from "react-router-dom";
 
+import { selectCampaign } from "../Actions/campaignsActions";
+import "../CssContainer/featuredCampaign.css";
 import CampaignCard from "./CampaignCard";
 
 class FeaturedCampaigns extends Component {
   render() {
-    console.log("feat", this.props.campaigns);
-
+    // console.log(selectCampaign());
+    
     return (
       <>
         <h2>FeaturedCampaigns</h2>
-        <div className='feat'>
+        <div className="feat">
           {this.props.campaigns.map(campaign =>
             campaign.featured === true ? (
-              <CampaignCard 
-                key={campaign.id} 
-                campaign={campaign} 
-              />
+              <Link
+                onClick={()=>this.props.selectCampaign(campaign.id)}
+                key={campaign.id}
+                to={`/campaign/${campaign.id}`}
+              >
+                <CampaignCard key={campaign.id} campaign={campaign} />
+              </Link>
             ) : null
           )}
         </div>
@@ -29,4 +34,4 @@ class FeaturedCampaigns extends Component {
 const mapStateToProps = state => ({
   campaigns: state.campaigns.campaigns
 });
-export default connect(mapStateToProps)(FeaturedCampaigns);
+export default connect(mapStateToProps, {selectCampaign})(FeaturedCampaigns );

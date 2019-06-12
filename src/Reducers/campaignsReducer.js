@@ -1,18 +1,18 @@
 import {
   FETCH_CAMPAIGNS,
   NEW_CAMPAIGN,
-  CREATE_USER,
-  AUTH_USER
+  SELECT_CAMPAIGN
 } from "../Actions/types";
-// import { stat } from 'fs';
+
 
 const initialState = {
-  currentUser: null,
+  //   currentUser: null,
   campaigns: [],
-  campaignCreated: {}
+  campaignCreated: {},
+  selectedCampaign: null
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_CAMPAIGNS:
       return {
@@ -24,18 +24,14 @@ export default function(state = initialState, action) {
         ...state,
         newCampaign: action.payload
       };
-    case CREATE_USER:
+    case SELECT_CAMPAIGN:
       return {
         ...state,
-        newUser: action.payload
-      };
-    case AUTH_USER:
-      return {
-        ...state,
-        currentUser: action.payload
-      };
+        selectedCampaign: action.payload
+      }
 
-    default:
-      return state;
+
+      default:
+        return state;
   }
 }

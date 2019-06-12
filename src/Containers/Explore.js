@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampaign } from "../Actions/campaignsActions";
-import '../CssContainer/explore.css'
+import { Link } from "react-router-dom";
 
+import { fetchCampaign, selectCampaign } from "../Actions/campaignsActions";
 import CampaignCard from "../Componets/CampaignCard";
+import "../CssContainer/explore.css";
 
 class Explore extends Component {
-//   componentWillMount() {
-//     this.props.fetchCampaign();
-//   }
+  //   componentWillMount() {
+  //     this.props.fetchCampaign();
+  //   }
 
   render() {
-      console.log(this.props);
-      
+    console.log(this.props);
+
     return (
       <div>
         <input type="search" placeholder="search" />
         <h2>aalll campaigns</h2>
         <div className="griddy">
           {this.props.campaigns.map(campaign => (
-            <CampaignCard key={campaign.id} campaign={campaign} />
+            <Link
+              onClick={() => this.props.selectCampaign(campaign.id)}
+              key={campaign.id}
+              to={`/campaign/${campaign.id}`}
+            >
+              <CampaignCard key={campaign.id} campaign={campaign} />
+            </Link>
           ))}
         </div>
       </div>
@@ -32,5 +39,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchCampaign }
+  { fetchCampaign, selectCampaign }
 )(Explore);

@@ -10,3 +10,14 @@
 .nav li a{
     text-decoration: none;
 }
+.wallet{
+    display: inherit;
+    border: 1px black solid;
+    padding: 10px 4px;
+}
+.wallet button{
+    border: 1px blue solid;
+    height: 100%;
+    padding: 4px;
+    margin: 5px;
+}

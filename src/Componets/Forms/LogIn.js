@@ -9,17 +9,24 @@ class LogIn extends Component {
       password: ""
     }
   };
+
   handleLogIn = e => {
     e.preventDefault();
     // console.log("sign in", e.target);
-    this.props.logInUser(this.state.logIn);
-
     this.setState({
       logIn: {
         username: "",
         password: ""
       }
     });
+    this.props.logInUser(this.state.logIn)
+      .then(data => {
+        if(data.errors) {
+
+        } else {
+          this.props.history.push('/')
+        }
+      })
   };
   handleInputChanges = e => {
     this.setState({
@@ -56,4 +63,8 @@ class LogIn extends Component {
     );
   }
 }
-export default connect(null, {logInUser})(LogIn);
+
+const mapstate=(state)=>({
+    current: state
+})
+export default connect(mapstate, {logInUser})(LogIn);

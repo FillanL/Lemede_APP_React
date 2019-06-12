@@ -38,7 +38,9 @@ class NewCampaign extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
+    console.log(this.state.newCampaign);
+    
 
     return (
       <div>
@@ -74,7 +76,7 @@ class NewCampaign extends Component {
           <input
             onChange={e => this.handleChange(e)}
             name="funding_goal"
-            type="text"
+            type="number"
             placeholder="Funding Goal"
             value={this.state.newCampaign.funding_goal}
           />

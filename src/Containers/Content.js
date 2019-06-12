@@ -5,6 +5,9 @@ import SignUp from '../Componets/Forms/SignUp'
 import LogIn from '../Componets/Forms/LogIn'
 import NewCampaign from '../Componets/Forms/NewCampaign'
 import Explore from './Explore'
+import CampaignShow from '../Componets/CampaignShow';
+import Account from '../Containers/Account'
+import IncreaseBalance from '../Componets/IncreaseBalance'
 
 class Content extends Component {
 
@@ -23,6 +26,12 @@ class Content extends Component {
                      <Route path='/LogIn' component={LogIn}
                     />
                     <Route path='/NewCampaign' component={NewCampaign}
+                    />
+                    <Route path='/campaign/:id' component={CampaignShow}
+                    />
+                    <Route path='/MyAccount' component={Account}
+                    />
+                    <Route path='/addBalance' component={IncreaseBalance}
                     />
                    
                 </Switch>
