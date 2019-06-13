@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
     case NEW_CAMPAIGN:
       return {
         ...state,
-        newCampaign: action.payload
+        campaigns: [...state.campaigns, action.payload]
       };
     case SELECT_CAMPAIGN:
       return {
