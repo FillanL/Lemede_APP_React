@@ -1,0 +1,13 @@
+.account-nav ul li a{
+    color: rgb(155, 155, 155);
+}
+.account-nav ul li a:hover{
+    color: rgba(97, 95, 95);
+}
+.account-nav{
+    margin-top: 30px;
+    border-bottom: 1px  rgb(219, 219, 219) solid;
+    font-size: 1.3em;
+    width: 550px;
+    
+}

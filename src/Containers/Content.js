@@ -8,6 +8,9 @@ import Explore from './Explore'
 import CampaignShow from '../Componets/CampaignShow';
 import Account from '../Containers/Account'
 import IncreaseBalance from '../Componets/IncreaseBalance'
+import UserCampaigns from '../Componets/UserCampaigns'
+import editUser from '../Componets/Forms/editUser'
+import editCampaign from '../Componets/Forms/editCampaign'
 
 class Content extends Component {
 
@@ -29,11 +32,18 @@ class Content extends Component {
                     />
                     <Route path='/campaign/:id' component={CampaignShow}
                     />
-                    <Route path='/MyAccount' component={Account}
+                    <Route exact path='/MyAccount' component={Account}
                     />
                     <Route path='/addBalance' component={IncreaseBalance}
                     />
-                   
+                   <Route exact path='/MyAccount/campaigns' component={UserCampaigns}
+                    />
+                    <Route path='/MyAccount/edit' component={editUser}
+                    />
+                    <Route exact path='/MyAccount/campaigns/edit/:id' component={editCampaign}
+                    />
+
+                    
                 </Switch>
             </div>
         )

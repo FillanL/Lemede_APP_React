@@ -14,6 +14,7 @@ class LogIn extends Component {
     e.preventDefault();
     // console.log("sign in", e.target);
     this.setState({
+      error:false,
       logIn: {
         username: "",
         password: ""
@@ -21,8 +22,12 @@ class LogIn extends Component {
     });
     this.props.logInUser(this.state.logIn)
       .then(data => {
-        if(data.errors) {
-
+        console.log(data)
+        if(data.error) {
+          // this.props.history.push('/Login')
+          this.setState({
+            error: true
+          })
         } else {
           this.props.history.push('/')
         }
@@ -38,10 +43,13 @@ class LogIn extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
 
     return (
       <div>
+       { this.state.error ? 
+       <div>  <h3>Please Check Username and Password</h3></div>
+      : null}
         <form onSubmit={e => this.handleLogIn(e)}>
           <label htmlFor="username" />
           <input

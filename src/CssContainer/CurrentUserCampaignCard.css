@@ -1,0 +1,9 @@
+.current-campaigns-box{
+    position: relative;
+    display: grid;
+    background-color: antiquewhite;
+    grid-template-columns: 150px 1fr 1fr 150px;
+    padding: 10px;
+    width: calc(80%);
+    margin: 20px 10% 20px 10%;
+}

@@ -1,20 +1,16 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import AccountNav from '../Componets/AccountNav'
 
 class Account extends Component {
     render() {
         return (
             <div>
                 {this.props.currentUser&&
+
                 <>
+                <AccountNav />
                 <div>
-                    <ul>
-                        <li> messages</li>
-                        <li> Favorites</li>
-                        <li>alerts</li>
-                        <li>friends</li>
-                        <li>my Campaigns</li>
-                    </ul>
 
                 </div>
                 <p>
