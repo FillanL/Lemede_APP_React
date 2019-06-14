@@ -51,7 +51,7 @@ export default function(state = initialState, action) {
         ...state,
         campaigns: state.campaigns.map(camp =>
           camp.id === action.payload.id
-            ? action.payload.campaign
+            ? action.payload
             : camp)
       };
     default:

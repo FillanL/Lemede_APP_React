@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom"
+
 import { selectCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
 class CampaignShow extends Component {
@@ -113,6 +115,12 @@ class CampaignShow extends Component {
                   value={this.state.donateValue}
                 />
                 <button>Sumbit</button>
+
+                {this.props.campaign.creator.id === this.props.user.id? 
+                <Link to={`/MyAccount/campaigns/edit/${this.props.campaign.id}` }>
+                <button >update</button>
+                </Link>
+                : null}
               </form>
             </div>
             <div className="callab-box">box 1 b2</div>

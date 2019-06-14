@@ -49,20 +49,19 @@ class editCampaign extends Component {
     e.preventDefault();
 // console.log("here");
 
-    this.props.updateCampaign(this.state.editValues, this.props.campaign.id).then(
+    this.props.updateCampaign(this.state.editValues, this.props.campaign.id)
 
-        this.props.history.push(`/campaign/${this.props.campaign.id}`)
-    )
     
     this.setState= ({
         editValues: {
-          title: "",
-          description: "",
-          category: "",
-          location: "",
-          funding_goal: ""
+            title: "",
+            description: "",
+            category: "",
+            location: "",
+            funding_goal: ""
         }
     });
+    this.props.history.push(`/campaign/${this.props.campaign.id}`)
   };
 
   render() {
