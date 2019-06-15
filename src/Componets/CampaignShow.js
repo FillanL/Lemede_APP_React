@@ -67,6 +67,9 @@ class CampaignShow extends Component {
   componentDidMount() {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
+
+    console.log("ehre", this.props);
+    
   }
 
   render() {
@@ -74,7 +77,7 @@ class CampaignShow extends Component {
     console.log(this.state.error);
     return (
       <div>
-        {this.props.campaign && (
+        {this.props.campaign &&(
           <div>
             <div className="card-img" style={{ height: "400px" }}>
               <img
@@ -114,13 +117,19 @@ class CampaignShow extends Component {
                   placeholder="$10"
                   value={this.state.donateValue}
                 />
-                <button>Sumbit</button>
+                <button>Submit</button>
 
-                {this.props.campaign.creator.id === this.props.user.id? 
-                <Link to={`/MyAccount/campaigns/edit/${this.props.campaign.id}` }>
-                <button >update</button>
-                </Link>
-                : null}
+                {this.props.user &&(
+
+                  
+                    this.props.campaign.creator.id === this.props.user.id? 
+                  <Link to={`/MyAccount/campaigns/edit/${this.props.campaign.id}` }>
+                  <button >update</button>
+                  </Link>
+                  : null
+                  
+                  )}
+
               </form>
             </div>
             <div className="callab-box">box 1 b2</div>

@@ -3,7 +3,8 @@ import {
   NEW_CAMPAIGN,
   SELECT_CAMPAIGN,
   EDITING_CAMPAIGN_ID,
-  UPDATE_CAMPAIGN_INFO
+  UPDATE_CAMPAIGN_INFO,
+  DELETE_CAMPAIGN
 } from "./types";
 
 export const fetchCampaign = () => dispatch => {
@@ -71,4 +72,19 @@ export const editCampaignId = id => dispatch => {
     type: EDITING_CAMPAIGN_ID,
     payload: id
   })
+}
+export const deleteCampaign = id => dispatch =>{
+
+  fetch(`http://localhost:3000/api/v1/campaign/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }
+  }).then(r => r.json())
+  .then(campaigns => dispatch({
+      type: DELETE_CAMPAIGN,
+      payload: campaigns
+    })
+    )
 }

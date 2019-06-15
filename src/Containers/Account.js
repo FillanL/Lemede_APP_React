@@ -16,6 +16,8 @@ class Account extends Component {
                 <p>
                 {this.props.currentUser.username}
                 </p>
+
+                <button>Delete Account</button>
                 </>
                 }
             </div>

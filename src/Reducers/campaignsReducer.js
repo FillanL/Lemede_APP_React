@@ -4,7 +4,8 @@ import {
   SELECT_CAMPAIGN,
   UPDATE_CAMPAIGNS,
   EDITING_CAMPAIGN_ID,
-  UPDATE_CAMPAIGN_INFO
+  UPDATE_CAMPAIGN_INFO,
+  DELETE_CAMPAIGN
 } from "../Actions/types";
 
 const initialState = {
@@ -54,6 +55,11 @@ export default function(state = initialState, action) {
             ? action.payload
             : camp)
       };
+      case DELETE_CAMPAIGN:
+        return{
+          ...state,
+          campaigns: action.payload
+        }
     default:
       return state;
   }
