@@ -11,20 +11,21 @@ import IncreaseBalance from '../Componets/IncreaseBalance'
 import UserCampaigns from '../Componets/UserCampaigns'
 import editUser from '../Componets/Forms/editUser'
 import editCampaign from '../Componets/Forms/editCampaign'
+import '../CssContainer/Content.css'
 
 class Content extends Component {
 
 
     render() {
         return (
-            <div>
-                {/* <Home/> */}
+            <div className="content-wrapper">
+                
                 <Switch>
                     <Route exact path='/' component={Home}
                     />
                     <Route path='/SignUp' component={SignUp}
                     />
-                     <Route path='/Explore' component={Explore}
+                     <Route path='/Explore/:id' component={Explore}
                     />
                      <Route path='/LogIn' component={LogIn}
                     />

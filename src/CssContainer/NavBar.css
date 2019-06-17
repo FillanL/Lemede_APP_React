@@ -1,6 +1,9 @@
 .nav {
     list-style: none;
     text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    height: 50px;
+    padding: 5px;
 }
 
 .nav li {

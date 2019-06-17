@@ -11,7 +11,7 @@ class NavBar extends Component {
     // console.log(this.props);
 
     return (
-      <div>
+      <nav>
         <ul className="nav">
           <li>LEMEDE</li>
           <li />
@@ -19,7 +19,7 @@ class NavBar extends Component {
             <Link to="/"> Home</Link>
           </li>
           <li>
-            <Link to="/Explore"> Explore</Link>
+            <Link to="/Explore/1"> Explore</Link>
           </li>
           <li>
             <Link to="/NewCampaign">new campaign</Link>
@@ -35,6 +35,7 @@ class NavBar extends Component {
                 <Link to="/MyAccount">
                 Account
                 </Link>
+                
                 </li>
               <li>
                 {this.props.valid && currentUser ? (
@@ -60,7 +61,7 @@ class NavBar extends Component {
             </>
           )}
         </ul>
-      </div>
+      </nav>
     );
   }
 }

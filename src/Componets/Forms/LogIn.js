@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logInUser } from "../../Actions/authUserActions";
+import "../../CssContainer/login.css"
 
 class LogIn extends Component {
   state = {
@@ -46,7 +47,7 @@ class LogIn extends Component {
     // console.log(this.props);
 
     return (
-      <div>
+      <div className="log-in-container">
        { this.state.error ? 
        <div>  <h3>Please Check Username and Password</h3></div>
       : null}
@@ -54,6 +55,8 @@ class LogIn extends Component {
           <label htmlFor="username" />
           <input
             onChange={e => this.handleInputChanges(e)}
+            minlength="4" 
+            maxlength="12"
             name="username"
             type="text"
             placeholder="Username"
@@ -61,6 +64,8 @@ class LogIn extends Component {
           <label htmlFor="" />
           <input
             onChange={e => this.handleInputChanges(e)}
+            minlength="3" 
+            maxlength="24"
             name="password"
             type="password"
             placeholder="Password"

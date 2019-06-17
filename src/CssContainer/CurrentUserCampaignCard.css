@@ -1,9 +1,23 @@
 .current-campaigns-box{
     position: relative;
     display: grid;
-    background-color: antiquewhite;
-    grid-template-columns: 150px 1fr 1fr 150px;
+    background-color:#FAFFFD;
+    grid-template-columns: 1fr 1fr 1fr 150px;
     padding: 10px;
     width: calc(80%);
+    height: 175px;
     margin: 20px 10% 20px 10%;
+    box-shadow: 0 2px 4px 0 #2E282A;
+
+}
+.current-campaigns-box button{
+    height: 30px;
+    width: auto;
+    padding: 0 10px;
+    display: block;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border:none;
+    font: 600;
 }

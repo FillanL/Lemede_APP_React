@@ -6,16 +6,16 @@ import { selectCampaign } from "../Actions/campaignsActions";
 import "../CssContainer/featuredCampaign.css";
 import CampaignCard from "./CampaignCard";
 
+const NUM_OF_SHOWN_CAMPAIGNS = 4
 class FeaturedCampaigns extends Component {
   render() {
-    // console.log(selectCampaign());
+    console.log(NUM_OF_SHOWN_CAMPAIGNS, this.props.featuredCampaigns)
     
     return (
       <>
         <h2>FeaturedCampaigns</h2>
         <div className="feat">
-          {this.props.campaigns.map(campaign =>
-            campaign.featured === true ? (
+          {this.props.featuredCampaigns.slice(0,NUM_OF_SHOWN_CAMPAIGNS).map(campaign =>
               <Link
                 onClick={()=>this.props.selectCampaign(campaign.id)}
                 key={campaign.id}
@@ -23,7 +23,6 @@ class FeaturedCampaigns extends Component {
               >
                 <CampaignCard key={campaign.id} campaign={campaign} />
               </Link>
-            ) : null
           )}
         </div>
       </>
@@ -32,6 +31,6 @@ class FeaturedCampaigns extends Component {
 }
 
 const mapStateToProps = state => ({
-  campaigns: state.campaigns.campaigns
+  featuredCampaigns: state.campaigns.campaigns.filter(campaign => campaign.featured)
 });
 export default connect(mapStateToProps, {selectCampaign})(FeaturedCampaigns );

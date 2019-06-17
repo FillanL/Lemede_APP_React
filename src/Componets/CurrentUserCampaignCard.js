@@ -16,7 +16,7 @@ class CurrentUserCampaignCard extends Component {
       <div className="current-campaigns-box">
         <div>
           <img
-            src="https://source.unsplash.com/user/markusspiske/125x125"
+            src="https://source.unsplash.com/user/markusspiske/150x175"
             alt={this.props.campaign.id}
           />
         </div>

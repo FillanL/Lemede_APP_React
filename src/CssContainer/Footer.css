@@ -1,4 +1,25 @@
-.blah{
+.footer{
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(3,1fr)
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+    bottom: 0;
+    height: 170px;
+    background-color: #161616;
+    color: #f3f3f3;
 }
+footer div .social li{
+    display: inline;
+    padding: 10px;
+    /* margin-top: 9px; */
+    /* line-height: 50px; */
+}
+footer div{
+    padding: 10px;
+    border: 1px solid black;
+    margin: 0px 10px;
+}
+footer{
+    font-size: .9em;
+}
+/* footer .social{} */
