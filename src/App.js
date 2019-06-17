@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faWallet, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
 import { fetchCampaign } from "./Actions/campaignsActions";
 import { isUserLoggedIn } from "./Actions/authUserActions";
@@ -12,7 +12,7 @@ import Footer from './Componets/Footer';
 import Content from './Containers/Content';
 import './CssContainer/App.css'
 
-library.add(fab, faCheckSquare, faCoffee)
+library.add(fab, faAngleRight, faWallet, faAngleLeft)
 class App extends React.Component {
 
   componentWillMount() {

@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { selectCampaign } from "../Actions/campaignsActions";
 import "../CssContainer/featuredCampaign.css";
 import CampaignCard from "./CampaignCard";
 
-const NUM_OF_SHOWN_CAMPAIGNS = 4
+const NUM_OF_SHOWN_CAMPAIGNS = 3
 class FeaturedCampaigns extends Component {
   render() {
-    console.log(NUM_OF_SHOWN_CAMPAIGNS, this.props.featuredCampaigns)
+   
     
     return (
       <>
-        <h2>FeaturedCampaigns</h2>
+        <h2>Featured Campaigns</h2>     
         <div className="feat">
+          <button>
+
+        <FontAwesomeIcon icon={faAngleLeft} size="7x" />
+          </button>
           {this.props.featuredCampaigns.slice(0,NUM_OF_SHOWN_CAMPAIGNS).map(campaign =>
               <Link
                 onClick={()=>this.props.selectCampaign(campaign.id)}
@@ -24,6 +30,11 @@ class FeaturedCampaigns extends Component {
                 <CampaignCard key={campaign.id} campaign={campaign} />
               </Link>
           )}
+           <button>
+
+<FontAwesomeIcon icon={faAngleRight} size="7x" />
+  </button>
+
         </div>
       </>
     );

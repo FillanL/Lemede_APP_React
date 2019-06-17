@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import "../CssContainer/NavBar.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -22,7 +24,7 @@ class NavBar extends Component {
             <Link to="/Explore/1"> Explore</Link>
           </li>
           <li>
-            <Link to="/NewCampaign">new campaign</Link>
+            <Link to="/NewCampaign">Create A Campaign</Link>
           </li>
           {currentUser !== null ? (
             <>
@@ -40,13 +42,13 @@ class NavBar extends Component {
               <li>
                 {this.props.valid && currentUser ? (
                   <div className="wallet">
-                    Wallet: {currentUser.account_balance.toLocaleString()} 
+                    <FontAwesomeIcon alt="wallet" icon={['fas', 'wallet']} size="lg" /> $ {currentUser.account_balance.toLocaleString()} 
                     <Link to="/addBalance">
                   <button>Add Money</button>
                     </Link>
                   </div>
                 ) : (
-                  <>Wallet: loading</>
+                  <><FontAwesomeIcon icon={['fa', 'wallet']} size="lg" />: loading</>
                 )}
               </li>
             </>

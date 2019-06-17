@@ -28,12 +28,16 @@ class Explore extends Component {
     
     const endingVal = startingVal + NUM_OF_SHOWN_CAMPAIGNS
 
+    const {campaigns} = this.props
     return (
       <div>
-        <input type="search" placeholder="search" />
-        <h2>aalll campaigns</h2>
+        <div className="search-bar-container">
+
+        <input maxLength="40" type="text" placeholder="Search" />
+        </div>
+        <h2>Explore</h2>
         <div className="griddy">
-          {this.props.campaigns
+          {campaigns
             .slice(startingVal, endingVal)
             .map(campaign => (
               <Link

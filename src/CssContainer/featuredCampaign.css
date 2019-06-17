@@ -1,4 +1,15 @@
 .feat{
     display: grid;
-    grid-template-columns: repeat(4, 1fr)
+    width: calc(100%-1060px);
+    grid-template-columns: 50px repeat(3, 1fr) 50px;
+    grid-column-gap: 20px;
+    padding: 0 70px;
+}
+.feat button{
+    border: none;
+    outline-style: none;
+}
+.feat button:hover{
+    color: brown;
+    cursor: pointer;
 }
