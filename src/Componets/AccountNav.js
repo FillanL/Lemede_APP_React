@@ -8,7 +8,7 @@ export default class AccountNav extends Component {
       <div className="nav account-nav">
         <ul>
           <li>
-            <Link to="/Favorites">Favorites</Link>
+            <Link to="/MyAccount/Favorites">Favorites</Link>
           </li>
           <li>
             <Link to="/MyAccount/campaigns">Campaigns</Link>

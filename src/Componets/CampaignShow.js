@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom"
 
-import { selectCampaign } from "../Actions/campaignsActions";
+import { selectCampaign, favoriteCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
 class CampaignShow extends Component {
   // //    match a fetch request for each show page
@@ -23,6 +23,20 @@ class CampaignShow extends Component {
     donateValue: "",
     error: false
   };
+  handleFav=()=>{
+    console.log("here");
+
+    if(this.props.user ){
+      // favorite
+      this.props.favoriteCampaign(this.props.user.id,this.props.match.params.id)
+    }else{
+      this.setState({
+        ...this.state,
+        error: true,
+        errorMessage: "Please Log In to Favorite"
+      })
+    }
+  }
 
   handInputChange = e => {
     this.setState({
@@ -68,13 +82,14 @@ class CampaignShow extends Component {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
 
-    console.log("ehre", this.props);
+    // console.log("ehre", this.props);
     
   }
 
   render() {
-    console.log(this.props.user);
-    console.log(this.state.error);
+    // console.log(this.props.user);
+    // console.log(this.state.error);
+
     return (
       <div>
         {this.props.campaign &&(
@@ -86,6 +101,7 @@ class CampaignShow extends Component {
               />
             </div>
             <h1>{this.props.campaign.title}</h1>
+            <button onClick={()=>this.handleFav()}>Favorite</button>
             <p>Location:{this.props.campaign.location}</p>
             <p>
               Donated: ${this.props.campaign.amount_funded.toLocaleString()}
@@ -153,5 +169,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { selectCampaign, donationToCampaign }
+  { selectCampaign, donationToCampaign, favoriteCampaign }
 )(CampaignShow);

@@ -23,7 +23,7 @@ class LogIn extends Component {
     });
     this.props.logInUser(this.state.logIn)
       .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.error) {
           // this.props.history.push('/Login')
           this.setState({
@@ -55,8 +55,8 @@ class LogIn extends Component {
           <label htmlFor="username" />
           <input
             onChange={e => this.handleInputChanges(e)}
-            minlength="4" 
-            maxlength="12"
+            minLength="4" 
+            maxLength="12"
             name="username"
             type="text"
             placeholder="Username"
@@ -64,8 +64,8 @@ class LogIn extends Component {
           <label htmlFor="" />
           <input
             onChange={e => this.handleInputChanges(e)}
-            minlength="3" 
-            maxlength="24"
+            minLength="3" 
+            maxLength="24"
             name="password"
             type="password"
             placeholder="Password"

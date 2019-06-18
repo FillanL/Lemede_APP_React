@@ -59,7 +59,8 @@ export default function(state = initialState, action) {
         return{
           ...state,
           campaigns: action.payload
-        }
+        };
+        
     default:
       return state;
   }

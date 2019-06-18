@@ -29,3 +29,6 @@ export const UPDATE_CAMPAIGN_INFO = "UPDATE_CAMPAIGN_INFO";
 
 // delete campaign selected
 export const DELETE_CAMPAIGN = "DELETE_CAMPAIGN";
+
+// favorite a campaign
+export const FAVORITE_CAMPAIGN = "FAVORITE_CAMPAIGN";

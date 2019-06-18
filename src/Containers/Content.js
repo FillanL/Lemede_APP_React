@@ -12,6 +12,7 @@ import UserCampaigns from '../Componets/UserCampaigns'
 import editUser from '../Componets/Forms/editUser'
 import editCampaign from '../Componets/Forms/editCampaign'
 import '../CssContainer/Content.css'
+import Favorites from '../Componets/Favorites';
 
 class Content extends Component {
 
@@ -42,6 +43,8 @@ class Content extends Component {
                     <Route path='/MyAccount/edit' component={editUser}
                     />
                     <Route exact path='/MyAccount/campaigns/edit/:id' component={editCampaign}
+                    />
+                    <Route exact path='/MyAccount/Favorites' component={Favorites}
                     />
 
                     

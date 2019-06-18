@@ -4,7 +4,8 @@ import {
   SELECT_CAMPAIGN,
   EDITING_CAMPAIGN_ID,
   UPDATE_CAMPAIGN_INFO,
-  DELETE_CAMPAIGN
+  DELETE_CAMPAIGN,
+  FAVORITE_CAMPAIGN
 } from "./types";
 
 export const fetchCampaign = () => dispatch => {
@@ -85,6 +86,25 @@ export const deleteCampaign = id => dispatch =>{
   .then(campaigns => dispatch({
       type: DELETE_CAMPAIGN,
       payload: campaigns
+    })
+    )
+}
+export const favoriteCampaign =(user, campaign)=> dispatch=>{
+  fetch(`http://localhost:3000/favorite`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body:JSON.stringify({
+        user,
+        campaign
+    })
+  })
+  .then(r => r.json())
+  .then(user => dispatch({
+      type: FAVORITE_CAMPAIGN,
+      payload: user
     })
     )
 }

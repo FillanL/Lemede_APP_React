@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import FeaturedCampaigns from '../Componets/FeaturedCampaigns'
 import RecomendedCampaigns from '../Componets/RecomendedCampaigns'
+import Carousel from '../Componets/SlideShow'
 
 
  class Home extends Component {
@@ -12,6 +13,7 @@ import RecomendedCampaigns from '../Componets/RecomendedCampaigns'
         
         return (
             <div>
+                <Carousel />
                 <FeaturedCampaigns />
                 <RecomendedCampaigns />   
             </div>
