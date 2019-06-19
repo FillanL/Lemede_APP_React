@@ -52,6 +52,8 @@ export default function(state = initialState, action) {
         valid: true
       };
       case FEATURE_CAMPAIGN:
+        console.log("user",action.payload);
+        
         return{
           ...state,
           currentUser: action.payload.user,

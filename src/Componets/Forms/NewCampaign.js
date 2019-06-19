@@ -24,20 +24,27 @@ class NewCampaign extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
 
-    this.props.createCampaign(this.state.newCampaign).then(campaign=>
-      this.props.history.push(`/campaign/${campaign.id}`)
+if(this.props.user){
 
-      )
-
-    this.setState({
-        newCampaign: {
-            title: "",
-            description: "",
-            location: "",
-            category: "",
-            funding_goal: ""
-          }
-    })
+  this.props.createCampaign(this.state.newCampaign).then(campaign=>
+    this.props.history.push(`/campaign/${campaign.id}`)
+ 
+    )
+ 
+  this.setState({
+      newCampaign: {
+          title: "",
+          description: "",
+          location: "",
+          category: "",
+          funding_goal: ""
+        }
+  })
+}else{
+ this.setState({
+   error:"MUST BE LONGGED IN"
+ })
+}
  
   };
   render() {
@@ -47,6 +54,9 @@ class NewCampaign extends Component {
 
     return (
       <div>
+        {this.state.error? <p style={{color:"red"}}>
+          MUST BE LOGGED IN TO CREATE
+        </p> : null}
         <form onSubmit={e => this.handleFormSubmit(e)}>
           <input
             onChange={e => this.handleChange(e)}
@@ -90,11 +100,11 @@ class NewCampaign extends Component {
   }
 }
 
-// const mapStateToProps =(state)=>({
-//   newCamp: state.campaigns.newCamp
-// })
+const mapStateToProps =(state)=>({
+  user: state.user.currentUser
+})
 
 export default connect(
-  null,
+  mapStateToProps,
   { createCampaign }
 )(NewCampaign);

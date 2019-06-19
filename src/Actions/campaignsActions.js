@@ -57,7 +57,6 @@ export const updateCampaign = (updatedCampaign,id) => dispatch => {
     })
     .then(r => r.json())
     .then(campaign =>{
-
         dispatch({
           type: UPDATE_CAMPAIGN_INFO,
           payload: campaign

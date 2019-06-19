@@ -57,6 +57,8 @@ export default function(state = initialState, action) {
             : camp)
       };
       case FEATURE_CAMPAIGN:
+        console.log("feat",action.payload.campaign);
+        
           return {
             ...state,
             campaigns: state.campaigns.map(camp =>

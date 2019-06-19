@@ -9,7 +9,9 @@ class Favorites extends Component {
    
     return (
       <>
-        {this.props.favorites != null && this.props.campaigns.length > 0
+        {
+      
+          this.props.favorites != null && this.props.campaigns.length > 0
           ? this.props.favorites.favorite_lists.length === 0 ?
           <p>YOU HAVE NOT FAVORITED ANY CAMPAIGNS YET.</p>
           :

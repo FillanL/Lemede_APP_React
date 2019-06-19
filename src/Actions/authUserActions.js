@@ -173,12 +173,10 @@ export const makeCampaignFeatured = (
     })
   })
     .then(r => r.json())
-    .then(items =>{
-      // console.log(items)
-      dispatch({
+    .then(items => dispatch({
         type: FEATURE_CAMPAIGN,
         payload: items
       })
-    }
+    
     );
 };
