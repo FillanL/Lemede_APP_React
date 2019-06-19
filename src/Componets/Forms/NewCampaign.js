@@ -24,7 +24,10 @@ class NewCampaign extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
 
-    this.props.createCampaign(this.state.newCampaign);
+    this.props.createCampaign(this.state.newCampaign).then(campaign=>
+      this.props.history.push(`/campaign/${campaign.id}`)
+
+      )
 
     this.setState({
         newCampaign: {
@@ -35,11 +38,11 @@ class NewCampaign extends Component {
             funding_goal: ""
           }
     })
+ 
   };
-
   render() {
     // console.log("props", this.props);
-    console.log(this.state.newCampaign);
+    // console.log(this.state.newCampaign);
     
 
     return (
@@ -86,6 +89,10 @@ class NewCampaign extends Component {
     );
   }
 }
+
+// const mapStateToProps =(state)=>({
+//   newCamp: state.campaigns.newCamp
+// })
 
 export default connect(
   null,

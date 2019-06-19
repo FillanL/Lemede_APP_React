@@ -6,23 +6,22 @@ import CurrentUserCampaignCard from "../Componets/CurrentUserCampaignCard";
 
 class Favorites extends Component {
   render() {
-    console.log("here");
-    // debugger;
-    console.log(this.props)
+   
     return (
       <>
         {this.props.favorites != null && this.props.campaigns.length > 0
-          ? this.props.favorites.favorite_lists
+          ? this.props.favorites.favorite_lists.length === 0 ?
+          <p>YOU HAVE NOT FAVORITED ANY CAMPAIGNS YET.</p>
+          :
+          this.props.favorites.favorite_lists
               .map(fav => {
                 return this.props.campaigns.find(camp =>{ return camp.id === fav.campaign_id
                 });
-                
               })
               .map(
                 favorite => {
                     return <CurrentUserCampaignCard 
                     key={favorite.id} campaign={favorite} />}
-                
               )
           : null}
       </>
@@ -31,8 +30,6 @@ class Favorites extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state);
-
   return {
     campaigns: state.campaigns.campaigns,
     favorites: state.user.currentUser

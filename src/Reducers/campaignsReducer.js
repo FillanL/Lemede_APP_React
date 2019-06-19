@@ -5,7 +5,8 @@ import {
   UPDATE_CAMPAIGNS,
   EDITING_CAMPAIGN_ID,
   UPDATE_CAMPAIGN_INFO,
-  DELETE_CAMPAIGN
+  DELETE_CAMPAIGN,
+  FEATURE_CAMPAIGN
 } from "../Actions/types";
 
 const initialState = {
@@ -55,6 +56,14 @@ export default function(state = initialState, action) {
             ? action.payload
             : camp)
       };
+      case FEATURE_CAMPAIGN:
+          return {
+            ...state,
+            campaigns: state.campaigns.map(camp =>
+              camp.id === action.payload.campaign.id
+                ? action.payload.campaign
+                : camp)
+          };
       case DELETE_CAMPAIGN:
         return{
           ...state,

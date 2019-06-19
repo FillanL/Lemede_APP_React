@@ -20,7 +20,7 @@ export const fetchCampaign = () => dispatch => {
 };
 
 export const createCampaign = newcamp => dispatch => {
-  fetch("http://localhost:3000/api/v1/campaign", {
+  return fetch("http://localhost:3000/api/v1/campaign", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,12 +32,17 @@ export const createCampaign = newcamp => dispatch => {
       })
     })
     .then(r => r.json())
-    .then(campaign =>
-      dispatch({
-        type: NEW_CAMPAIGN,
-        payload: campaign
-      })
-    );
+    .then(campaign =>{
+      if(!campaign.error){
+        dispatch({
+          type: NEW_CAMPAIGN,
+          payload: campaign
+        })
+      }
+      // debugger
+      return campaign;
+    })
+    
 };
 export const updateCampaign = (updatedCampaign,id) => dispatch => {
   fetch(`http://localhost:3000/api/v1/campaign/${id}`, {

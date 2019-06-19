@@ -32,3 +32,9 @@ export const DELETE_CAMPAIGN = "DELETE_CAMPAIGN";
 
 // favorite a campaign
 export const FAVORITE_CAMPAIGN = "FAVORITE_CAMPAIGN";
+
+// delete Users
+export const DELETE_USER = "DELETE_USER";
+
+// make sufeatured
+export const FEATURE_CAMPAIGN = "FEATURE_CAMPAIGN"

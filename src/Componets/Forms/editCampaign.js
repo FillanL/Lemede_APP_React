@@ -67,7 +67,7 @@ class editCampaign extends Component {
   render() {
     const { campaign } = this.props;
     //   console.log("props",this.props.campaign);
-    console.log("state", this.props);
+    // console.log("state", this.props);
 
     return (
       <>

@@ -1,4 +1,4 @@
-import { AUTH_USER, REMOVE_USER, VALID_USER, UPDATE_CAMPAIGNS } from "./types";
+import { AUTH_USER, REMOVE_USER, VALID_USER, UPDATE_CAMPAIGNS, DELETE_USER, FEATURE_CAMPAIGN } from "./types";
 
 // USER CRUDDD
 export const createUser = userCreateValues => dispatch => {
@@ -57,7 +57,6 @@ export const isUserLoggedIn = () => dispatch => {
 
 //   log in userr
 export const logInUser = logInValues => dispatch => {
-  console.log("xyz");
   return fetch("http://localhost:3000/api/v1/login", {
     method: "POST",
     headers: {
@@ -80,7 +79,6 @@ export const logInUser = logInValues => dispatch => {
 };
 
 export const signOutCurrent = () => dispatch => {
-  console.log("done dealllll");
   localStorage.removeItem("token");
   dispatch({
     type: REMOVE_USER,
@@ -131,9 +129,54 @@ export const donationToCampaign = (
   })
     .then(r => r.json())
     .then(items =>{
-      console.log(items)
+   
       dispatch({
         type: UPDATE_CAMPAIGNS,
+        payload: items
+      })
+    }
+    );
+};
+
+export const deleteCurrentUser = id => dispatch=>{
+  // dispatch({
+  
+  // })
+ fetch(`http://localhost:3000/api/v1/users/${id}`, {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  }
+})
+.then(r => r.json())
+.then(campaign => dispatch({
+  type: DELETE_USER,
+  payload: campaign
+}))
+localStorage.removeItem("token");
+}
+
+export const makeCampaignFeatured = (
+  user_id,
+  campaign_id
+) => dispatch => {
+  fetch("http://localhost:3000/featured", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      user_id: user_id,
+      campaign_id: campaign_id
+    })
+  })
+    .then(r => r.json())
+    .then(items =>{
+      // console.log(items)
+      dispatch({
+        type: FEATURE_CAMPAIGN,
         payload: items
       })
     }

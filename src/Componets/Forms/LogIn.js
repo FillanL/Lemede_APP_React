@@ -23,9 +23,10 @@ class LogIn extends Component {
     });
     this.props.logInUser(this.state.logIn)
       .then(data => {
-        // console.log(data)
+
         if(data.error) {
           // this.props.history.push('/Login')
+          // this.props.history.push('/')
           this.setState({
             error: true
           })
@@ -44,7 +45,7 @@ class LogIn extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    
 
     return (
       <div className="log-in-container">

@@ -4,7 +4,9 @@ import {
   VALID_USER,
   ADD_BALANCE,
   UPDATE_CAMPAIGNS,
-  FAVORITE_CAMPAIGN
+  FAVORITE_CAMPAIGN,
+  FEATURE_CAMPAIGN,
+  DELETE_USER
 } from "../Actions/types";
 
 const initialState = {
@@ -49,6 +51,19 @@ export default function(state = initialState, action) {
         currentUser: action.payload,
         valid: true
       };
+      case FEATURE_CAMPAIGN:
+        return{
+          ...state,
+          currentUser: action.payload.user,
+          valid: true
+        }
+      case DELETE_USER:
+        return{
+          ...state,
+          currentUser: null,
+          campaigns: action.payload,
+          valid: false
+        }
     default:
       return state;
   }

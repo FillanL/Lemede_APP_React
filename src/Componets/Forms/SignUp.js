@@ -34,6 +34,8 @@ class SignUp extends Component {
         bio: ""
       }
     });
+        this.props.history.push('/Login')
+        
   };
 
   handleInputChange = e => {
@@ -48,7 +50,7 @@ class SignUp extends Component {
   };
 
   render() {
-    console.log(this.state.signUpValues);
+    // console.log(this.state.signUpValues);
 
     const {
       first_name,

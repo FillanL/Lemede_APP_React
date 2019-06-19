@@ -101,7 +101,10 @@ class CampaignShow extends Component {
               />
             </div>
             <h1>{this.props.campaign.title}</h1>
-            <button onClick={()=>this.handleFav()}>Favorite</button>
+            {
+              !(this.props.campaign.creator.id === this.props.user.id) ?
+            <button onClick={()=>this.handleFav()}>Favorite</button>: null
+            }
             <p>Location:{this.props.campaign.location}</p>
             <p>
               Donated: ${this.props.campaign.amount_funded.toLocaleString()}

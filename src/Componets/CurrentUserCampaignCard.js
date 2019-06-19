@@ -3,17 +3,36 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import "../CssContainer/CurrentUserCampaignCard.css";
+import{makeCampaignFeatured} from '../Actions/authUserActions'
 import { editCampaignId, deleteCampaign } from "../Actions/campaignsActions";
 
 class CurrentUserCampaignCard extends Component {
   deleteCampaign = e => {
-    console.log("here");
     this.props.deleteCampaign(this.props.campaign.id);
   };
 
+  makefeatured=()=>{
+    let confirm = window.confirm("this will cost $100")
+
+    if(confirm && ((this.props.user.account_balance - 100 ) >= 0 ) && !this.props.campaign.featured){
+      // fetch then up date wallet
+        this.props.makeCampaignFeatured(this.props.user.id, this.props.campaign.id)
+    } else if((this.props.user.account_balance - 100 ) < 0 ){
+
+      alert("not enoguht")
+      // this.setState({
+      //   error: "not enought funds"
+      // })
+    } else if (this.props.campaign.featured){
+      alert("Already Featured")
+      // this.setState({
+      //   error: "Already featured"
+      // })
+    }
+  }
+
   render() {
-    console.log(this.props);
-    
+
     return (
       <>
       { 
@@ -51,7 +70,7 @@ class CurrentUserCampaignCard extends Component {
           >
             <button>Update</button>
           </Link>
-            <button>Feature</button>
+            <button onClick={()=>this.makefeatured()}>Feature</button>
           
 
           <button onClick={e => this.deleteCampaign(e)}>Delete</button>
@@ -85,8 +104,6 @@ class CurrentUserCampaignCard extends Component {
           </Link>
         </div>
       </div>
-      
-      
       : null
       }
       </>
@@ -103,5 +120,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { editCampaignId, deleteCampaign }
+  { editCampaignId, deleteCampaign, makeCampaignFeatured }
 )(CurrentUserCampaignCard);

@@ -1,8 +1,9 @@
-.account-nav ul li a{
-    color: rgb(155, 155, 155);
+.account-nav ul li {
+    color: rgb(19, 18, 18);
 }
-.account-nav ul li a:hover{
+.account-nav ul li:hover{
     color: rgba(97, 95, 95);
+    cursor: pointer;
 }
 .account-nav{
     margin-top: 30px;
@@ -10,4 +11,11 @@
     font-size: 1.3em;
     width: 550px;
     
+}
+.active{
+     text-decoration: underline;
+    /* color: rgba(97, 95, 95);
+     */
+     /* color: red; */
+
 }
