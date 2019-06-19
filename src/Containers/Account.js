@@ -5,16 +5,36 @@ import UserCampaigns from '../Componets/UserCampaigns'
 import Favorites from '../Componets/Favorites';
 
 class Account extends Component {
+    state={
+        page: "favorite"
+    }
+
+    handleUpdate=(e)=>{
+        this.setState({
+            page: e
+        })
+    }
+
+    renderer= () =>{
+        if (this.state.page === "favorite"){
+            return (<Favorites />
+                )
+        }else if(this.state.page === "campaigns"){
+            return (<UserCampaigns />
+                )
+        }
+    }
+
     render() {
         return (
             <div>
                 {this.props.currentUser&&
 
                 <>
-                <AccountNav />
-                <UserCampaigns />
-                <Favorites />
-
+                <AccountNav page={this.handleUpdate} />
+                
+                {this.renderer()}
+                
                 
                 <div>
 

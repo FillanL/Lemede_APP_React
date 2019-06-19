@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import CurrentUserCampaignCard from "../Componets/CurrentUserCampaignCard";
 
@@ -14,13 +14,15 @@ class Favorites extends Component {
         {this.props.favorites != null && this.props.campaigns.length > 0
           ? this.props.favorites.favorite_lists
               .map(fav => {
+                return this.props.campaigns.find(camp =>{ return camp.id === fav.campaign_id
+                });
                 
-                return this.props.campaigns.find(camp => fav.campaign_id);
               })
               .map(
                 favorite => {
-                    return <CurrentUserCampaignCard campaign={favorite} />}
-                // console.log(favorite)
+                    return <CurrentUserCampaignCard 
+                    key={favorite.id} campaign={favorite} />}
+                
               )
           : null}
       </>

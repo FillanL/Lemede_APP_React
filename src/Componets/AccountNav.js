@@ -7,11 +7,15 @@ export default class AccountNav extends Component {
     return (
       <div className="nav account-nav">
         <ul>
-          <li>
-            <Link to="/MyAccount/Favorites">Favorites</Link>
+          <li onClick={()=>this.props.page("favorite")}>
+            {/* <Link to="/MyAccount/Favorites"> */}
+              Favorites
+              {/* </Link> */}
           </li>
-          <li>
-            <Link to="/MyAccount/campaigns">Campaigns</Link>
+          <li onClick={()=>this.props.page("campaigns")}>
+            {/* <Link to="/MyAccount/campaigns"> */}
+              Campaigns
+              {/* </Link> */}
           </li>
           <li>
             <Link to="/MyAccount/edit">Edit Account</Link>
