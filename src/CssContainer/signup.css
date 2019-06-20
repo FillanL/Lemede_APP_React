@@ -1,0 +1,57 @@
+.content-wrapper .signup-bg {
+    background-image: url("https://images.unsplash.com/photo-1538506392157-218c11f95129?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto");
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    margin: -15px;
+}
+
+.signup-bg form {
+    /* margin: 40px 40px;
+     */
+    position: absolute;
+    top: 15%;
+    margin: 0px 20%;
+}
+
+.signup-bg form input {
+    position: relative;
+    display: block;
+    border: none;
+    padding: 0 10px;
+    margin: 20px 0%;
+    height: 28px;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23);
+    width: 200px;
+}
+.signup-bg form input:focus {
+    
+    outline-style: none;
+}
+
+.signup-bg button {
+    height: 30px;
+    width: auto;
+    padding: 0 10px;
+    display: block;
+   
+    font-size: 16px;
+    line-height: 16px;
+    
+    font: 600;
+    border: 1px solid rgba(125,128,147,.23);
+}
+.signup-bg textarea:focus{
+    outline-style: none;
+
+}
+.signup-bg textarea{
+    width: 200px;
+    font: 16px;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23);
+
+}

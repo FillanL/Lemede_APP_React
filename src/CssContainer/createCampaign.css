@@ -1,0 +1,43 @@
+.content-wrapper .create-bg{
+    background-image: url("https://images.unsplash.com/photo-1538506392157-218c11f95129?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto");
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: inherit;
+    margin: -15px;
+
+}
+.create-bg form{
+    /* margin: 40px 40px;
+     */
+     position: absolute;
+     top: 25%;
+    margin: 0px 20%;
+}
+
+.create-bg form input{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    border: none;
+    margin: 20px 0%;
+    height: 28px;;
+    width: 200px;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23);
+
+}
+.create-bg button{
+    height: 30px;
+    width: auto;
+    padding: 0 10px;
+    display: block;
+    /* margin: 10px; */
+    font-size: 16px;
+    line-height: 16px;
+    border:none;
+    font: 600;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23);
+
+    border: 1px solid rgb(0, 0, 0);
+}

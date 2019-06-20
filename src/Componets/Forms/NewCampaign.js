@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createCampaign } from "../../Actions/campaignsActions";
+import '../../CssContainer/createCampaign.css'
 
 class NewCampaign extends Component {
   state = {
@@ -53,7 +54,7 @@ if(this.props.user){
     
 
     return (
-      <div>
+      <div className="create-bg">
         {this.state.error? <p style={{color:"red"}}>
           MUST BE LOGGED IN TO CREATE
         </p> : null}

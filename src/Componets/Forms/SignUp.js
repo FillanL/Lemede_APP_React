@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import { createUser } from "../../Actions/authUserActions";
+import '..//../CssContainer/signup.css'
+
 
 class SignUp extends Component {
   state = {
@@ -64,8 +67,8 @@ class SignUp extends Component {
     } = this.state.signUpValues;
 
     return (
-      <div>
-        <p>siggnnnnnn uupp</p>
+      <div className="signup-bg">
+        <p>Create an account</p>
 
         <form onSubmit={e => this.handleSignUp(e)}>
           <input
@@ -122,9 +125,11 @@ class SignUp extends Component {
           <textarea
             onChange={e => this.handleInputChange(e)}
             name="bio"
-            // type="textarea"
-            placeholder="Bio"
+            type="textfeild"
+            placeholder="Tell us about you"
             value={bio}
+            rows="30em"
+            cols="40em"
           />
           <button type="submit">Sign up</button>
         </form>

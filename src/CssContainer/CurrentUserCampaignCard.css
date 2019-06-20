@@ -7,7 +7,7 @@
     width: calc(80%);
     height: 175px;
     margin: 20px 10% 20px 10%;
-    box-shadow: 0 2px 4px 0 #2E282A;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23)
 
 }
 .current-campaigns-box button{
@@ -32,7 +32,7 @@
     width: calc(80%);
     height: 175px;
     margin: 20px 10% 20px 10%;
-    box-shadow: 0 2px 4px 0 #2E282A;
+    box-shadow: 0 4px 11px rgba(125,128,147,.23);
 
 }
 .favorite-campaigns-box button{
