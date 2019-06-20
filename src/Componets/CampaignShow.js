@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import { selectCampaign, favoriteCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
@@ -23,20 +23,23 @@ class CampaignShow extends Component {
     donateValue: "",
     error: false
   };
-  handleFav=()=>{
+  handleFav = () => {
     console.log("here");
 
-    if(this.props.user ){
+    if (this.props.user) {
       // favorite
-      this.props.favoriteCampaign(this.props.user.id,this.props.match.params.id)
-    }else{
+      this.props.favoriteCampaign(
+        this.props.user.id,
+        this.props.match.params.id
+      );
+    } else {
       this.setState({
         ...this.state,
         error: true,
         errorMessage: "Please Log In to Favorite"
-      })
+      });
     }
-  }
+  };
 
   handInputChange = e => {
     this.setState({
@@ -70,8 +73,8 @@ class CampaignShow extends Component {
         this.props.user.id,
         this.props.campaign.id
       );
-      this.props.selectCampaign(Number(this.props.match.params.id))
-      
+      this.props.selectCampaign(Number(this.props.match.params.id));
+
       this.setState({
         error: false,
         donateValue: ""
@@ -83,16 +86,15 @@ class CampaignShow extends Component {
     this.props.selectCampaign(Number(this.props.match.params.id));
 
     // console.log("ehre", this.props);
-    
   }
 
   render() {
-    // console.log(this.props.user);
+    // console.log(this.props.campaign);
     // console.log(this.state.error);
 
     return (
       <div>
-        {this.props.campaign &&(
+        {this.props.campaign ? (
           <div>
             <div className="card-img" style={{ height: "400px" }}>
               <img
@@ -101,9 +103,14 @@ class CampaignShow extends Component {
               />
             </div>
             <h1>{this.props.campaign.title}</h1>
-            {
-              !(this.props.campaign.creator.id === this.props.user.id) ?
-            <button onClick={()=>this.handleFav()}>Favorite</button>: null
+            {this.props.user ? (
+              !(this.props.campaign.creator.id === this.props.user.id) ? (
+                <button onClick={() => this.handleFav()}>Favorite</button>
+              ) : null
+            ) : (
+              <button onClick={() => this.handleFav()}>Favorite</button>
+            )
+            // : null
             }
             <p>Location:{this.props.campaign.location}</p>
             <p>
@@ -138,22 +145,19 @@ class CampaignShow extends Component {
                 />
                 <button>Submit</button>
 
-                {this.props.user &&(
-
-                  
-                    this.props.campaign.creator.id === this.props.user.id? 
-                  <Link to={`/MyAccount/campaigns/edit/${this.props.campaign.id}` }>
-                  <button >update</button>
-                  </Link>
-                  : null
-                  
-                  )}
-
+                {this.props.user &&
+                  (this.props.campaign.creator.id === this.props.user.id ? (
+                    <Link
+                      to={`/MyAccount/campaigns/edit/${this.props.campaign.id}`}
+                    >
+                      <button>update</button>
+                    </Link>
+                  ) : null)}
               </form>
             </div>
             <div className="callab-box">box 1 b2</div>
           </div>
-        )}
+        ) : null}
       </div>
     );
   }
@@ -167,7 +171,6 @@ const mapStateToProps = state => {
     ),
     user: state.user.currentUser
   };
-
 };
 
 export default connect(
