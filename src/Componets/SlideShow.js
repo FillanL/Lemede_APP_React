@@ -5,7 +5,7 @@ import 'flickity/dist/flickity.min.css';
 import "../CssContainer/SliderShow.css";
 
 const imgs = [
-  "https://images.unsplash.com/photo-1481931715705-36f5f79f1f3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9",
+  "https://source.unsplash.com/user/markusspiske",
   "https://images.unsplash.com/photo-1517260739337-6799d239ce83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9",
   "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9"
 ];

@@ -68,9 +68,9 @@ class SignUp extends Component {
 
     return (
       <div className="signup-bg">
-        <p>Create an account</p>
 
         <form onSubmit={e => this.handleSignUp(e)}>
+        <p>Create an account</p>
           <input
             onChange={e => this.handleInputChange(e)}
             name="first_name"

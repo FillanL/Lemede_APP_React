@@ -63,28 +63,21 @@ if(this.props.user){
             onChange={e => this.handleChange(e)}
             name="title"
             type="text"
-            placeholder="title"
+            placeholder="Title"
             value={this.state.newCampaign.title}
-          />
-          <input
-            onChange={e => this.handleChange(e)}
-            name="description"
-            type="text"
-            placeholder="description"
-            value={this.state.newCampaign.description}
           />
           <input
             onChange={e => this.handleChange(e)}
             name="location"
             type="text"
-            placeholder="location"
+            placeholder="Location"
             value={this.state.newCampaign.location}
           />
           <input
             onChange={e => this.handleChange(e)}
             name="category"
             type="text"
-            placeholder="category"
+            placeholder="Category"
             value={this.state.newCampaign.category}
           />
           <input
@@ -93,6 +86,13 @@ if(this.props.user){
             type="number"
             placeholder="Funding Goal"
             value={this.state.newCampaign.funding_goal}
+          />
+          <textarea
+            onChange={e => this.handleChange(e)}
+            name="description"
+            type="text"
+            placeholder="Description"
+            value={this.state.newCampaign.description}
           />
           <button type="submit">Submit</button>
         </form>

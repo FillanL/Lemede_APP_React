@@ -11,7 +11,8 @@
 }
 .donation-box{
     position: relative;
-    background-color: rgb(252, 245, 164);
+    background-color: rgba(153, 153, 143, 0.384);
+    /* background-color: rgb(252, 245, 164); */
     box-shadow: 1px 7px 11px rgba(106, 108, 124, 0.9);
     width: auto;;
     height: auto;
@@ -59,7 +60,7 @@
 }
 .right-container .stats{
     position: relative;
-    background-color: rgba(95, 95, 82, 0.384);
+    background-color: rgba(153, 153, 143, 0.384);
     box-shadow: 1px 7px 11px rgba(106, 108, 124, 0.9);
     padding: 20px;
     font-size: 12px;

@@ -99,7 +99,7 @@ class CampaignShow extends Component {
         {this.props.campaign ? (
           <div>
             <div className="card-img" style={{ height: "400px" }}>
-              <img
+              <img style={{objectFit: "cover", objectPosition:"center center"}}
                 src="https://source.unsplash.com/user/markusspiske"
                 alt={this.props.campaign.id}
               />
@@ -108,7 +108,7 @@ class CampaignShow extends Component {
             <div className="show-campaign-container">
               <div className="show-content">
                 <h1>{this.props.campaign.title}</h1>
-
+                  <h3 style={{color: "#465561"}}>{this.props.campaign.category}</h3>
                 {this.props.user ? (
                   !(this.props.campaign.creator.id === this.props.user.id) ? (
                     <button onClick={() => this.handleFav()}>Favorite</button>
@@ -162,7 +162,7 @@ class CampaignShow extends Component {
                             this.props.campaign.id
                           }`}
                         >
-                          <button>update</button>
+                          <button>Update</button>
                         </Link>
                       ) : null)}
                   </form>

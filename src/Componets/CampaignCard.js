@@ -33,7 +33,9 @@ class CampaignCard extends Component {
         <div className="card-content">
           <h4>{this.props.campaign.title}</h4>
           <article>
-            {this.props.campaign.description.substring(0, 90)}...
+        <br></br>
+          
+          {this.props.campaign.description.substring(0, 60)}...
           </article>
 
           <p>Goal: ${this.props.campaign.funding_goal.toLocaleString()}</p>

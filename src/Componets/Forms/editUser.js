@@ -32,8 +32,8 @@ class EditUser extends Component {
       <>
         {this.props.user ? (
           <div>
-            edit user
-            <p>{this.props.user.username}</p>
+            {/* edit user
+            <p>{this.props.user.username}</p> */}
             <button onClick={() => this.handleDeleteClick()}>
               Delete Account
             </button>
