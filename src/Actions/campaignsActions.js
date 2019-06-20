@@ -5,7 +5,9 @@ import {
   EDITING_CAMPAIGN_ID,
   UPDATE_CAMPAIGN_INFO,
   DELETE_CAMPAIGN,
-  FAVORITE_CAMPAIGN
+  FAVORITE_CAMPAIGN,
+  SEARCH_TERM
+
 } from "./types";
 
 export const fetchCampaign = () => dispatch => {
@@ -111,4 +113,11 @@ export const favoriteCampaign =(user, campaign)=> dispatch=>{
       payload: user
     })
     )
+}
+export const updateSeach =(term)=>dispatch=>{
+  
+  dispatch({
+    type:SEARCH_TERM,
+    payload: term
+  })
 }

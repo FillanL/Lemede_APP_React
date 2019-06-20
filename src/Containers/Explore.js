@@ -2,25 +2,39 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { fetchCampaign, selectCampaign } from "../Actions/campaignsActions";
+import { fetchCampaign, selectCampaign, updateSeach } from "../Actions/campaignsActions";
 import CampaignCard from "../Componets/CampaignCard";
 import "../CssContainer/explore.css";
 
 const NUM_OF_SHOWN_CAMPAIGNS = 12;
 class Explore extends Component {
-
+state={
+  searchVal:""
+}
   pagiation = () => {
     let pages = [];
     let startNum = 1;
     const numOfPages = Math.ceil(
       this.props.campaigns.length / NUM_OF_SHOWN_CAMPAIGNS
     );
+
     while (startNum <= numOfPages) {
       pages.push(startNum);
       startNum++;
     }
     return pages;
   };
+
+  handleSearchChange = (e) => {
+    // this.setState({
+    //   searchVal: this.props.updateSeach
+    // })
+    this.props.updateSeach(e.target.value)
+
+    // this.setState({
+    //   searchVal: e.target.value.toLowerCase()
+    // })
+  }
 
 
   render() {
@@ -29,11 +43,16 @@ class Explore extends Component {
     const endingVal = startingVal + NUM_OF_SHOWN_CAMPAIGNS
 
     const {campaigns} = this.props
+
+    console.log(this.state.searchVal);
+    
     return (
       <div>
         <div className="search-bar-container">
 
-        <input maxLength="40" type="text" placeholder="Search" />
+        <input onChange={(e)=>this.handleSearchChange(e)} maxLength="40" type="text" placeholder="Search" value={this.state.searchTerm}/>
+
+
         </div>
         <h2>Explore</h2>
         <div className="griddy">
@@ -64,10 +83,13 @@ class Explore extends Component {
   }
 }
 const mapStateToProps = state => ({
-  campaigns: state.campaigns.campaigns
+  campaigns: state.campaigns.campaigns.filter(campaign => campaign.title.toLowerCase().includes(state.campaigns.searchTerm.toLowerCase())
+  ),
+  searchTerm: state.campaigns.searchTerm
+
 });
 
 export default connect(
   mapStateToProps,
-  { fetchCampaign, selectCampaign }
+  { fetchCampaign, selectCampaign, updateSeach }
 )(Explore);

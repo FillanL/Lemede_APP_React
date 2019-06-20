@@ -38,3 +38,6 @@ export const DELETE_USER = "DELETE_USER";
 
 // make sufeatured
 export const FEATURE_CAMPAIGN = "FEATURE_CAMPAIGN"
+
+// serach on explore term
+export const SEARCH_TERM = "SEARCH_TERM"

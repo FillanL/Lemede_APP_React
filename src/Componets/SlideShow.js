@@ -29,11 +29,11 @@ class Carousel extends Component {
     return (
       <>
         <Flickity className="why" flickityRef={c => (this.flkty = c)}>
-          <img src={imgs[0]} alt="Q#"  />
-          <img src={imgs[1]} alt="342"/>
-          <img src={imgs[2]} alt="324" />
+          <img className="fitting" src={imgs[0]} alt="Q#"  />
+          <img className="fitting" src={imgs[1]} alt="342"/>
+          <img className="fitting" src={imgs[2]} alt="324" />
         </Flickity>
-        <button onClick={this.myCustomNext}>My custom next button</button>
+        {/* <button onClick={this.myCustomNext}>My custom next button</button> */}
       </>
     );
   }

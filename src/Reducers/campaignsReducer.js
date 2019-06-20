@@ -6,15 +6,18 @@ import {
   EDITING_CAMPAIGN_ID,
   UPDATE_CAMPAIGN_INFO,
   DELETE_CAMPAIGN,
-  FEATURE_CAMPAIGN
+  FEATURE_CAMPAIGN,
+  SEARCH_TERM
 } from "../Actions/types";
+
 
 const initialState = {
   //   currentUser: null,
   campaigns: [],
   campaignCreated: {},
   selectedCampaign: null,
-  editingCampaignId: null
+  editingCampaignId: null,
+  searchTerm: ""
 };
 
 export default function(state = initialState, action) {
@@ -71,7 +74,11 @@ export default function(state = initialState, action) {
           ...state,
           campaigns: action.payload
         };
-        
+        case SEARCH_TERM:
+          return{
+            ...state,
+            searchTerm: action.payload
+          }; 
     default:
       return state;
   }

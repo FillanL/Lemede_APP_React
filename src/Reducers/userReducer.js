@@ -11,6 +11,7 @@ import {
 
 const initialState = {
   currentUser: null
+  
 };
 
 export default function(state = initialState, action) {
