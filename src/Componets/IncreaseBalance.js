@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { addAccountBalance } from "../Actions/authUserActions";
+import '../CssContainer/increaseBalance.css'
 
 class IncreaseBalance extends Component {
   state = {
@@ -41,13 +42,15 @@ class IncreaseBalance extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="increase-balance">
           {
               this.state.error ? <h4>AMOUNT CANNNOT BE LESS THAT ZERO</h4>: null
-          }
+          }<div className="bank">
+            <h3>Bank</h3>
+          </div>
         <div>
           <button onClick={e => this.handleBtnClick(e)} value="10">
-            10
+            $10
           </button>
           <button onClick={e => this.handleBtnClick(e)} value="20">
             $20
@@ -64,14 +67,14 @@ class IncreaseBalance extends Component {
         </div>
         <div>
           <form onSubmit={e => this.handleValueSubmit(e)}>
-            <input
+            $ <input
               name="addAmount"
               onChange={e => this.handimput(e)}
               type="number"
               placeholder="Add Amount"
               value={this.state.addAmount.toLocaleString()}
             />
-            <button>Submit</button>
+            <button>Add</button>
           </form>
         </div>
       </div>

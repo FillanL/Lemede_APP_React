@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { selectCampaign, favoriteCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
+import "../CssContainer/Campaign-show.css";
+
 class CampaignShow extends Component {
   // //    match a fetch request for each show page
   //     componentDidMount() {
@@ -102,60 +104,97 @@ class CampaignShow extends Component {
                 alt={this.props.campaign.id}
               />
             </div>
-            <h1>{this.props.campaign.title}</h1>
-            {this.props.user ? (
-              !(this.props.campaign.creator.id === this.props.user.id) ? (
-                <button onClick={() => this.handleFav()}>Favorite</button>
-              ) : null
-            ) : (
-              <button onClick={() => this.handleFav()}>Favorite</button>
-            )
-            // : null
-            }
-            <p>Location:{this.props.campaign.location}</p>
-            <p>
-              Donated: ${this.props.campaign.amount_funded.toLocaleString()}
-            </p>
-            <p>Goal: ${this.props.campaign.funding_goal.toLocaleString()}</p>
-            <article>
-              {this.props.campaign.description}
-              <br />
-              <br />
-              by: {this.props.campaign.creator.first_name}{" "}
-              {this.props.campaign.creator.last_name}
-            </article>
-            <p>Donations: {this.props.campaign.funded_campaigns.length}</p>
-            <p>Backers:</p>
-            {this.state.error ? (
-              <div>
-                {" "}
-                <h3 style={{ color: "red" }}>{this.state.errorMessage}</h3>
-              </div>
-            ) : null}
-            <div className="donation-box">
-              <form onSubmit={e => this.handleDonationSubmit(e)}>
-                <input
-                  type="number"
-                  min="1"
-                  onChange={e => this.handInputChange(e)}
-                  // onInput="validity.valid||(value='')"
-                  name="donateValue"
-                  placeholder="$10"
-                  value={this.state.donateValue}
-                />
-                <button>Submit</button>
 
-                {this.props.user &&
-                  (this.props.campaign.creator.id === this.props.user.id ? (
-                    <Link
-                      to={`/MyAccount/campaigns/edit/${this.props.campaign.id}`}
-                    >
-                      <button>update</button>
-                    </Link>
-                  ) : null)}
-              </form>
+            <div className="show-campaign-container">
+              <div className="show-content">
+                <h1>{this.props.campaign.title}</h1>
+
+                {this.props.user ? (
+                  !(this.props.campaign.creator.id === this.props.user.id) ? (
+                    <button onClick={() => this.handleFav()}>Favorite</button>
+                  ) : null
+                ) : (
+                  <button onClick={() => this.handleFav()}>Favorite</button>
+                )
+                // : null
+                }
+                <p>Location: {this.props.campaign.location}</p>
+                {/* <p>
+                  Donated: ${this.props.campaign.amount_funded.toLocaleString()}
+                </p>
+                <p>
+                  Goal: ${this.props.campaign.funding_goal.toLocaleString()}
+                </p> */}
+      
+                <br></br>
+                <article>
+                  {this.props.campaign.description}
+                  <br />
+                  <br />
+                  by: {this.props.campaign.creator.first_name}{" "}
+                  {this.props.campaign.creator.last_name}
+                </article>
+              </div>
+              <div className="right-container">
+                <div className="donation-box">
+                  <form onSubmit={e => this.handleDonationSubmit(e)}>
+                    <h3>Donate</h3>
+                    {this.state.error ? (
+                  <div>
+                    <h3 style={{ color: "red" }}>{this.state.errorMessage}</h3>
+                  </div>
+                ) : null}
+                    <input
+                      type="number"
+                      min="1"
+                      onChange={e => this.handInputChange(e)}
+                      // onInput="validity.valid||(value='')"
+                      name="donateValue"
+                      placeholder="$10"
+                      value={this.state.donateValue}
+                    />
+                    <button>Donate</button>
+
+                    {this.props.user &&
+                      (this.props.campaign.creator.id === this.props.user.id ? (
+                        <Link
+                          to={`/MyAccount/campaigns/edit/${
+                            this.props.campaign.id
+                          }`}
+                        >
+                          <button>update</button>
+                        </Link>
+                      ) : null)}
+                  </form>
+                </div>
+
+                          {/* <div>
+
+
+                          </div> */}
+
+
+
+                <div className="stats">
+                  <h3>Stats</h3>
+                  <p>
+                  Donated: ${this.props.campaign.amount_funded.toLocaleString()}
+                </p>
+                <p>
+                  Goal: ${this.props.campaign.funding_goal.toLocaleString()}
+                </p>
+                <p>Donations: {this.props.campaign.funded_campaigns.length}</p>
+                <p>Backers:</p>
+                <p>Percentage to Goal: {(
+              (this.props.campaign.amount_funded /
+                this.props.campaign.funding_goal) *
+              100
+            ).toFixed(2)}
+            %</p>
+                
+                </div>
+              </div>
             </div>
-            <div className="callab-box">box 1 b2</div>
           </div>
         ) : null}
       </div>

@@ -37,9 +37,9 @@ class CampaignCard extends Component {
           </article>
 
           <p>Goal: ${this.props.campaign.funding_goal.toLocaleString()}</p>
-          <p>funded: ${this.props.campaign.amount_funded.toLocaleString()}</p>
+          <p>Funded: ${this.props.campaign.amount_funded.toLocaleString()}</p>
           <p>
-            percentage:{" "}
+            Percentage:{" "}
             {(
               (this.props.campaign.amount_funded /
                 this.props.campaign.funding_goal) *
