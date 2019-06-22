@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 
 import FeaturedCampaigns from '../Componets/FeaturedCampaigns'
-import RecomendedCampaigns from '../Componets/RecomendedCampaigns'
+
+// import RecomendedCampaigns from '../Componets/RecomendedCampaigns'
 import Carousel from '../Componets/SlideShow'
 
 
@@ -13,7 +14,7 @@ import Carousel from '../Componets/SlideShow'
             <div>
                 <Carousel />
                 <FeaturedCampaigns />
-                <RecomendedCampaigns />   
+                {/* <RecomendedCampaigns />    */}
             </div>
         )
     }

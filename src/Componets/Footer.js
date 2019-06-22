@@ -23,18 +23,16 @@ class Footer extends Component {
         <div>
           <p>Quick Links</p>
           <ul>
-            <li>asdfna,s</li>
-            <li>dstuff</li>
-            <li>dstuff</li>
-            <li>dstuff</li>
+            <li></li>
+            <li></li>
+            
           </ul>
         </div>
         <div>
           <ul>
             <li>Contact Us</li>
             <li>dstuff</li>
-            <li>dstuff</li>
-            <li>dstuff</li>
+            
           </ul>
         </div>
       </footer>

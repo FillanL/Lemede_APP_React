@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {withRouter} from 'react-router-dom'
 import { connect } from "react-redux";
+
+import '../../CssContainer/editCamp.css'
 import { deleteCurrentUser } from "../../Actions/authUserActions";
 
 class EditUser extends Component {

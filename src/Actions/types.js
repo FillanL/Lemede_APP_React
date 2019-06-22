@@ -41,3 +41,8 @@ export const FEATURE_CAMPAIGN = "FEATURE_CAMPAIGN"
 
 // serach on explore term
 export const SEARCH_TERM = "SEARCH_TERM"
+
+// 8 RANDOM NUMS
+export const EIGHT_RANDOMNUM = "FOUR_RANDOMNUM"
+
+

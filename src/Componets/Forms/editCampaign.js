@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import {Link} from 'react-router-dom'
 import { editCampaignId, updateCampaign } from "../../Actions/campaignsActions";
+import '../../CssContainer/editCamp.css'
 
 class editCampaign extends Component {
   state = {
@@ -72,8 +73,8 @@ class editCampaign extends Component {
     return (
       <>
         {campaign ? (
-          <div>
-            edit editCampaign
+          <div className="edit-campaign">
+            {/* edit editCampaign */}
             <form onSubmit={e => this.handleSubmitEdit(e)}>
               <input
                 onClick={e => this.handleInputClick(e)}
@@ -82,14 +83,6 @@ class editCampaign extends Component {
                 type="text"
                 placeholder={this.props.campaign.title}
                 value={this.state.editValues.title}
-              />
-              <input
-                onClick={e => this.handleInputClick(e)}
-                onChange={e => this.handleEditChange(e)}
-                name="description"
-                type="text"
-                placeholder={this.props.campaign.description}
-                value={this.state.editValues.description}
               />
               <input
                 onClick={e => this.handleInputClick(e)}
@@ -116,6 +109,14 @@ class editCampaign extends Component {
                 type="number"
                 placeholder={this.props.campaign.funding_goal}
                 value={this.state.editValues.funding_goal}
+              />
+              <textarea
+                onClick={e => this.handleInputClick(e)}
+                onChange={e => this.handleEditChange(e)}
+                name="description"
+                type="text"
+                placeholder={this.props.campaign.description}
+                value={this.state.editValues.description}
               />
               <button type="submit">Edit</button>
             </form>

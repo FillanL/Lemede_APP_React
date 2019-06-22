@@ -6,7 +6,7 @@ import {
   UPDATE_CAMPAIGN_INFO,
   DELETE_CAMPAIGN,
   FAVORITE_CAMPAIGN,
-  SEARCH_TERM
+  SEARCH_TERM,EIGHT_RANDOMNUM
 
 } from "./types";
 
@@ -120,4 +120,31 @@ export const updateSeach =(term)=>dispatch=>{
     type:SEARCH_TERM,
     payload: term
   })
+}
+
+export const randomEight =(camp)=>dispatch=>{
+  // let i = 0
+  // let uniqRandom = []
+  // let Count = camp.length
+
+  // if (Count > 8) {
+  //   while (i < 8) {
+  //     let jnum = Math.floor(Math.random() * Count) + 1
+
+  //     if (uniqRandom.includes(jnum) === false) {
+  //       uniqRandom.push(jnum)
+  //       i++
+  //     }
+  //   }
+  //   return camp.filter(campaign => uniqRandom.includes(campaign.id))
+   
+  // } else {
+  //   return 0
+  // }
+
+  // dispatch({
+  //   type:EIGHT_RANDOMNUM,
+  //   payload: uniqRandom
+  // })
+
 }
