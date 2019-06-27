@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 // import {Link} from 'react-router-dom'
 import { editCampaignId, updateCampaign } from "../../Actions/campaignsActions";
 import '../../CssContainer/editCamp.css'
+import EditorJs from 'react-editor-js';
 
 class editCampaign extends Component {
   state = {
@@ -118,6 +119,14 @@ class editCampaign extends Component {
                 placeholder={this.props.campaign.description}
                 value={this.state.editValues.description}
               />
+              {/* herre */}
+              <EditorJs data={{
+              type: "paragraph",
+              data: {
+                text:
+                  "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
+              }
+            }} />;
               <button type="submit">Edit</button>
             </form>
           </div>

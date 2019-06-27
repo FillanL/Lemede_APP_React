@@ -1,0 +1,5 @@
+.random-campaign{
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ margin: 10px 20px;
+}

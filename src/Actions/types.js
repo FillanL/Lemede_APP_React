@@ -43,6 +43,7 @@ export const FEATURE_CAMPAIGN = "FEATURE_CAMPAIGN"
 export const SEARCH_TERM = "SEARCH_TERM"
 
 // 8 RANDOM NUMS
-export const EIGHT_RANDOMNUM = "FOUR_RANDOMNUM"
+// export const EIGHT_RANDOMNUM = "FOUR_RANDOMNUM"
 
-
+// get all users
+export const GET_ALL_USERS = "GET_ALL_USERS"

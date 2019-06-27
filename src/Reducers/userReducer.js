@@ -6,11 +6,13 @@ import {
   UPDATE_CAMPAIGNS,
   FAVORITE_CAMPAIGN,
   FEATURE_CAMPAIGN,
-  DELETE_USER
+  DELETE_USER,
+  GET_ALL_USERS
 } from "../Actions/types";
 
 const initialState = {
-  currentUser: null
+  currentUser: null,
+  allUsers: null
   
 };
 
@@ -67,6 +69,11 @@ export default function(state = initialState, action) {
           campaigns: action.payload,
           valid: false
         }
+        case GET_ALL_USERS:
+          return{
+            ...state,
+allUsers: action.payload
+          }
     default:
       return state;
   }

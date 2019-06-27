@@ -131,8 +131,11 @@ class CampaignShow extends Component {
                   {this.props.campaign.description}
                   <br />
                   <br />
-                  by: {this.props.campaign.creator.first_name}{" "}
-                  {this.props.campaign.creator.last_name}
+                  by:{" "}
+                  <Link to={`/profile/${this.props.campaign.creator.id}`}
+                  style={{color:"lightblue"}}>
+                    {this.props.campaign.creator.username}
+                  </Link> 
                 </article>
               </div>
               <div className="right-container">
