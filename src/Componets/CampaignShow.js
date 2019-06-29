@@ -4,29 +4,16 @@ import { Link } from "react-router-dom";
 
 import { selectCampaign, favoriteCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
+import {handleProfileClicked} from '../Actions/getActions'
 import "../CssContainer/Campaign-show.css";
 
 class CampaignShow extends Component {
-  // //    match a fetch request for each show page
-  //     componentDidMount() {
-  //         // campaignInfo = () => {
-  //           fetch(`http://localhost:3000/api/v1${this.props.match.url}`)
-  //             .then(r => r.json())
-  //             .then(campaign => {
-  //               this.setState({
-  //                 campaign
-  //               });
-  //             });
-  //         // };
-  //     // this.campaignInfo();
-  //   }
 
   state = {
     donateValue: "",
     error: false
   };
   handleFav = () => {
-    console.log("here");
 
     if (this.props.user) {
       // favorite
@@ -86,13 +73,9 @@ class CampaignShow extends Component {
   componentDidMount() {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
-
-    // console.log("ehre", this.props);
   }
 
   render() {
-    // console.log(this.props.campaign);
-    // console.log(this.state.error);
 
     return (
       <div>
@@ -116,15 +99,9 @@ class CampaignShow extends Component {
                 ) : (
                   <button onClick={() => this.handleFav()}>Favorite</button>
                 )
-                // : null
                 }
                 <p>Location: {this.props.campaign.location}</p>
-                {/* <p>
-                  Donated: ${this.props.campaign.amount_funded.toLocaleString()}
-                </p>
-                <p>
-                  Goal: ${this.props.campaign.funding_goal.toLocaleString()}
-                </p> */}
+               
       
                 <br></br>
                 <article>
@@ -132,7 +109,7 @@ class CampaignShow extends Component {
                   <br />
                   <br />
                   by:{" "}
-                  <Link to={`/profile/${this.props.campaign.creator.id}`}
+                  <Link onClick={()=>this.props.handleProfileClicked(this.props.campaign.creator.id)} to={`/profile/${this.props.campaign.creator.id}`}
                   style={{color:"lightblue"}}>
                     {this.props.campaign.creator.username}
                   </Link> 
@@ -140,7 +117,7 @@ class CampaignShow extends Component {
               </div>
               <div className="right-container">
                 <div className="donation-box">
-                  <form onSubmit={e => this.handleDonationSubmit(e)}>
+                  <form onSubmit={e => this.props.handleDonationSubmit(e)}>
                     <h3>Donate</h3>
                     {this.state.error ? (
                   <div>
@@ -171,13 +148,6 @@ class CampaignShow extends Component {
                   </form>
                 </div>
 
-                          {/* <div>
-
-
-                          </div> */}
-
-
-
                 <div className="stats">
                   <h3>Stats</h3>
                   <p>
@@ -206,7 +176,7 @@ class CampaignShow extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("mapstate toprops", state)
+
   return {
     campaign: state.campaigns.campaigns.find(
       campaign => campaign.id === state.campaigns.selectedCampaign
@@ -217,5 +187,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { selectCampaign, donationToCampaign, favoriteCampaign }
+  { selectCampaign, donationToCampaign, favoriteCampaign, handleProfileClicked }
 )(CampaignShow);

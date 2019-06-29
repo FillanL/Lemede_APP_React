@@ -6,6 +6,7 @@ import { faWallet, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-
 
 import { fetchCampaign } from "./Actions/campaignsActions";
 import { isUserLoggedIn } from "./Actions/authUserActions";
+import{getAllUsers} from './Actions/getActions'
 
 import NavBar from './Componets/NavBar';
 import Footer from './Componets/Footer';
@@ -18,6 +19,7 @@ class App extends React.Component {
   componentWillMount() {
     this.props.fetchCampaign()
     this.props.isUserLoggedIn()
+    this.props.getAllUsers()
   }
   
   render(){
@@ -34,4 +36,4 @@ class App extends React.Component {
 // const mapStateToProps =(state)=>({
 //   curren: state.user.isUserLoggedIn
 // })
-export default connect(null, { fetchCampaign, isUserLoggedIn } )(App);
+export default connect(null, { fetchCampaign, isUserLoggedIn, getAllUsers } )(App);

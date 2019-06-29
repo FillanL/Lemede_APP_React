@@ -7,13 +7,14 @@ import {
   FAVORITE_CAMPAIGN,
   FEATURE_CAMPAIGN,
   DELETE_USER,
-  GET_ALL_USERS
+  GET_ALL_USERS,
+  VIEW_USER
 } from "../Actions/types";
 
 const initialState = {
   currentUser: null,
-  allUsers: null
-  
+  allUsers: null,
+  viewProfile: null
 };
 
 export default function(state = initialState, action) {
@@ -54,26 +55,29 @@ export default function(state = initialState, action) {
         currentUser: action.payload,
         valid: true
       };
-      case FEATURE_CAMPAIGN:
-        console.log("user",action.payload);
-        
-        return{
-          ...state,
-          currentUser: action.payload.user,
-          valid: true
-        }
-      case DELETE_USER:
-        return{
-          ...state,
-          currentUser: null,
-          campaigns: action.payload,
-          valid: false
-        }
-        case GET_ALL_USERS:
-          return{
-            ...state,
-allUsers: action.payload
-          }
+    case FEATURE_CAMPAIGN:
+      return {
+        ...state,
+        currentUser: action.payload.user,
+        valid: true
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+        currentUser: null,
+        campaigns: action.payload,
+        valid: false
+      };
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: action.payload
+      };
+    case VIEW_USER:
+      return {
+        ...state,
+        viewProfile: action.payload
+      };
     default:
       return state;
   }

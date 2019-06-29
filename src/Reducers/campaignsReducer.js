@@ -10,7 +10,6 @@ import {
   SEARCH_TERM
 } from "../Actions/types";
 
-
 const initialState = {
   //   currentUser: null,
   campaigns: [],
@@ -55,30 +54,30 @@ export default function(state = initialState, action) {
       return {
         ...state,
         campaigns: state.campaigns.map(camp =>
-          camp.id === action.payload.id
-            ? action.payload
-            : camp)
+          camp.id === action.payload.id ? action.payload : camp
+        )
       };
-      case FEATURE_CAMPAIGN:
-        console.log("feat",action.payload.campaign);
-        
-          return {
-            ...state,
-            campaigns: state.campaigns.map(camp =>
-              camp.id === action.payload.campaign.id
-                ? action.payload.campaign
-                : camp)
-          };
-      case DELETE_CAMPAIGN:
-        return{
-          ...state,
-          campaigns: action.payload
-        };
-        case SEARCH_TERM:
-          return{
-            ...state,
-            searchTerm: action.payload
-          }; 
+    case FEATURE_CAMPAIGN:
+      console.log("feat", action.payload.campaign);
+
+      return {
+        ...state,
+        campaigns: state.campaigns.map(camp =>
+          camp.id === action.payload.campaign.id
+            ? action.payload.campaign
+            : camp
+        )
+      };
+    case DELETE_CAMPAIGN:
+      return {
+        ...state,
+        campaigns: action.payload
+      };
+    case SEARCH_TERM:
+      return {
+        ...state,
+        searchTerm: action.payload
+      };
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import CampaignCard from "./CampaignCard";
 import { randomEight } from "../Actions/campaignsActions";
+import { selectCampaign } from "../Actions/campaignsActions";
 import '../CssContainer/RecomendedCampaigns.css'
 
 class RecomendedCampaigns extends Component {
@@ -43,5 +44,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { randomEight }
+  { randomEight,selectCampaign }
 )(RecomendedCampaigns);

@@ -7,8 +7,6 @@ import {
   DELETE_CAMPAIGN,
   FAVORITE_CAMPAIGN,
   SEARCH_TERM
-  
-
 } from "./types";
 
 export const fetchCampaign = () => dispatch => {
@@ -138,15 +136,7 @@ export const randomEight =(camp)=>dispatch=>{
       }
     }
     return uniqRandoms
-    // camp.filter(campaign => uniqRandoms.includes(campaign.id))
-   
   } else {
     return 0
   }
-
-  // dispatch({
-  //   type:EIGHT_RANDOMNUM,
-  //   payload: uniqRandoms
-  // })
-
 }

@@ -47,3 +47,7 @@ export const SEARCH_TERM = "SEARCH_TERM"
 
 // get all users
 export const GET_ALL_USERS = "GET_ALL_USERS"
+
+
+// view user prfoile from champaign show page
+export const VIEW_USER = "VIEW_USER"
