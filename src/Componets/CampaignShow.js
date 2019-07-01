@@ -73,10 +73,14 @@ class CampaignShow extends Component {
   componentDidMount() {
     //   on refresh componenet still knows which campaign was selected
     this.props.selectCampaign(Number(this.props.match.params.id));
+
+    console.log("mount",this.props.selectedCampaign);
+    
   }
 
   render() {
-
+    console.log("rendinere",this.props.selectedCampaign);
+    
     return (
       <div>
         {this.props.campaign ? (
@@ -176,6 +180,7 @@ class CampaignShow extends Component {
 }
 
 const mapStateToProps = state => {
+console.log("got stsate",state.campaigns.selectedCampaign);
 
   return {
     campaign: state.campaigns.campaigns.find(
