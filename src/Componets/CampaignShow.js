@@ -87,7 +87,7 @@ class CampaignShow extends Component {
           <div>
             <div className="card-img" style={{ height: "400px" }}>
               <img style={{objectFit: "cover", objectPosition:"center center"}}
-                src="https://source.unsplash.com/user/markusspiske"
+                src={this.props.campaign.campaign_img}
                 alt={this.props.campaign.id}
               />
             </div>

@@ -57,7 +57,7 @@ class LogIn extends Component {
           <input
             onChange={e => this.handleInputChanges(e)}
             minLength="4" 
-            maxLength="12"
+            maxLength="15"
             name="username"
             type="text"
             placeholder="Username"

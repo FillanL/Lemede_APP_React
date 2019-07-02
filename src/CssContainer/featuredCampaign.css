@@ -1,8 +1,9 @@
 .feat{
     display: grid;
-    width: calc(100%-1060px);
+    max-width: 100vw;
+    /* width: calc(100%-1060px); */
     grid-template-columns: 50px repeat(3, 1fr) 50px;
-    grid-column-gap: 20px;
+    grid-column-gap: 0px;
     padding: 0 70px;
 }
 .feat button{
@@ -12,4 +13,10 @@
 .feat button:hover{
     color: brown;
     cursor: pointer;
+}
+.feat .feat_right_btn{
+    /* color: blue; */
+    position: relative;
+    grid-column-start: 5;
+    grid-column-end: 6;
 }

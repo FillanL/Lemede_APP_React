@@ -15,6 +15,7 @@ class SignUp extends Component {
       password: "",
       age: "",
       profession: "",
+      user_img: "",
       bio:""
     }
   };
@@ -34,6 +35,7 @@ class SignUp extends Component {
         password: "",
         age: "",
         profession: "",
+        user_img: "",
         bio: ""
       }
     });
@@ -63,6 +65,7 @@ class SignUp extends Component {
       password,
       age,
       profession,
+      user_img,
       bio
     } = this.state.signUpValues;
 
@@ -122,6 +125,13 @@ class SignUp extends Component {
             placeholder="Password"
             value={password}
           />
+          <input
+            onChange={e => this.handleInputChange(e)}
+            name="user_img"
+            type="text"
+            placeholder="profile Image"
+            value={user_img}
+          />
           <textarea
             onChange={e => this.handleInputChange(e)}
             name="bio"
@@ -137,9 +147,7 @@ class SignUp extends Component {
     );
   }
 }
-// const mapStatetoProps=()=>{
-//   createUser:
-// }
+
 export default connect(
   null,
   { createUser }

@@ -11,7 +11,7 @@ class CampaignCard extends Component {
       <div className="card">
         <div className="card-img">
           <img
-            src="https://source.unsplash.com/user/markusspiske"
+            src={this.props.campaign.campaign_img}
             alt={this.props.campaign.id}
           />
         </div>

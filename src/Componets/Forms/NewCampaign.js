@@ -10,7 +10,8 @@ class NewCampaign extends Component {
       description: "",
       location: "",
       category: "",
-      funding_goal: ""
+      funding_goal: "",
+      campaign_img: ""
     }
   };
   handleChange = e => {
@@ -38,7 +39,8 @@ if(this.props.user){
           description: "",
           location: "",
           category: "",
-          funding_goal: ""
+          funding_goal: "",
+          campaign_img: ""
         }
   })
 }else{
@@ -86,6 +88,13 @@ if(this.props.user){
             type="number"
             placeholder="Funding Goal"
             value={this.state.newCampaign.funding_goal}
+          />
+          <input
+            onChange={e => this.handleChange(e)}
+            name="campaign_img"
+            type="text"
+            placeholder="Image URL"
+            value={this.state.newCampaign.campaign_img}
           />
           <textarea
             onChange={e => this.handleChange(e)}

@@ -27,8 +27,13 @@ class FeaturedCampaigns extends Component {
 
   handleRightButtonClick=()=>{
     // console.log(e.target);
-    if(this.state.start+ NUM_OF_SHOWN_CAMPAIGNS <= this.props.featuredCampaigns.length){
+    if(this.state.start+ NUM_OF_SHOWN_CAMPAIGNS < this.props.featuredCampaigns.length){
 
+      console.log("plus", this.state.start+ NUM_OF_SHOWN_CAMPAIGNS);
+      console.log("length", this.props.featuredCampaigns.length);
+      console.log("bol",(this.state.start+ NUM_OF_SHOWN_CAMPAIGNS <= this.props.featuredCampaigns.length));
+      
+      
       this.setState({
         start:this.state.start+ NUM_OF_SHOWN_CAMPAIGNS
       })
@@ -57,7 +62,7 @@ class FeaturedCampaigns extends Component {
                 <CampaignCard key={campaign.id} campaign={campaign} />
               </Link>
             ))}
-          <button onClick={()=>this.handleRightButtonClick()}>
+          <button className="feat_right_btn" onClick={()=>this.handleRightButtonClick()}>
             <FontAwesomeIcon icon={faAngleRight} size="7x" />
           </button>
         </div>
