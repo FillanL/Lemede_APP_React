@@ -1,0 +1,20 @@
+.collab_campaigns_container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    position: relative;
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+.collab_campaigns{
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+position: relative;
+overflow: hidden;
+}
+.collab_campaigns img{
+    min-width: 100%;
+    position: inherit;
+}
