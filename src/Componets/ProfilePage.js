@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+
 import {Link} from'react-router-dom'
 
 import { handleProfileClicked } from "../Actions/getActions";
@@ -53,8 +56,10 @@ class ProfilePage extends Component {
             </span>
             {", "}{this.vistingUser().profession.toUpperCase()}
            
-            
-            <h4>{this.vistingUser().location}</h4>
+            <h4>
+              <FontAwesomeIcon style={{color:"lightblue"}} icon={faMapMarkerAlt} size="small" /> 
+              {this.vistingUser().location}
+            </h4>
             <p className="bio"> Bio: </p>
             <article>
             {this.vistingUser().bio}

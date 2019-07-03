@@ -7,10 +7,16 @@
     height: 170px;
     background-color: #000000;
     color: #f3f3f3;
+    text-align: center;
+/* grid-column-gap: -50px; */
+}
+footer p{
+    text-align: left;
 }
 footer div .social li{
     display: inline;
     padding: 10px;
+    text-align: left;
     /* margin-top: 9px; */
     /* line-height: 50px; */
 }

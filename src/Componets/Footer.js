@@ -21,20 +21,24 @@ class Footer extends Component {
           </ul>
         </div>
         <div>
-          <p>Quick Links</p>
           <ul>
-            <li></li>
-            <li></li>
-            
+          <li>Quick Links</li>
+            <li>Home</li>
+            <li>create</li>
+            <li>Explore</li>
           </ul>
         </div>
         <div>
           <ul>
             <li>Contact Us</li>
-            <li>dstuff</li>
+            <li>report bug</li>
             
           </ul>
         </div>
+
+          <h4>
+            &copy; created by: Fillan Lee &trade;
+            </h4>
       </footer>
     );
   }

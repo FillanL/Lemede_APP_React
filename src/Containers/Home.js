@@ -14,6 +14,7 @@ import Carousel from '../Componets/SlideShow'
             <div>
                 <Carousel />
                 <FeaturedCampaigns />
+                <div style={{backgroundColor: "#8f62bb", height:"1px", width:"60%", marginLeft:"20%"}}></div>
                 <RecomendedCampaigns />   
             </div>
         )

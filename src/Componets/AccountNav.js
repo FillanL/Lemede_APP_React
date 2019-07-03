@@ -5,7 +5,7 @@ import "../CssContainer/AccountNav.css";
 export default class AccountNav extends Component {
   render() {
     return (
-      <div className="nav account-nav">
+      <div style={{marginTop:"70px"}} className="nav account-nav">
         <ul>
           <li className="" onClick={(e)=>this.props.page(e,"favorite")}>
             

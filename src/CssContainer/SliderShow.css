@@ -4,7 +4,7 @@
     width: 800px;
     overflow: hidden;
     margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 70px;
     background-color: rgb(168, 168, 168);
     text-align: center;
     top: 50%;
@@ -15,12 +15,6 @@
 
 
 }
-/* .why img{
-
-    /* min-width: 100%; */
-    /* min-height: 100%; */
-  
-/* }  */
 
 .fitting{
     position: relative;

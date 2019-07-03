@@ -8,7 +8,8 @@
     overflow: hidden;
     /* border: 1px solid #011627; */
     border-radius: 10px;
-    box-shadow: 0 2px 4px 0 #FF9F1C;
+    /* box-shadow: 0 2px 4px 0 #FF9F1C; */
+    box-shadow: 0 2px 4px 0 #8f62bb;
 }
 .card-img{
     position: inherit;
@@ -55,8 +56,8 @@
     /* background-color: rgb(74, 74, 100); */
     /* FFEAD0 */
     /* FB3640 */
-    background-color: #FF9F1C;
-    /* background-color: #323246; */
+    /* background-color: #FF9F1C; */
+    background-color: #8f62bb;
     /* transition: width 0.5s ease-in; */
 }
 .new-campaign{

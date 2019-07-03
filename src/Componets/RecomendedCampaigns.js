@@ -12,7 +12,7 @@ class RecomendedCampaigns extends Component {
     const rando = this.props.randomEight(this.props.RandCampaigns);
     return (
       <>
-        <h2>Recomended Campaigns</h2>
+        <h2 style={{ marginTop: "30px"}}>Recomended Campaigns</h2>
         <div className="random-campaign">
           {this.props.RandCampaigns ? (
             <>

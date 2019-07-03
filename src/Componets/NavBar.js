@@ -15,7 +15,12 @@ class NavBar extends Component {
     return (
       <nav>
         <ul className="nav">
-          <li>LEMEDE</li>
+
+          <li className="logo">
+          <Link to="/">
+          L<span className="e-span">E</span>M<span className="e-span">E</span>D<span className="e-span">E</span>
+          </Link>
+          </li>
           <li />
           <li>
             <Link to="/"> Home</Link>
@@ -51,7 +56,7 @@ class NavBar extends Component {
                   <><FontAwesomeIcon icon={['fa', 'wallet']} size="lg" />: loading</>
                 )}
               </li>
-              <li>Welcome, {currentUser.first_name}</li>
+              <li>Welcome,<Link to={`/Profile/${currentUser.id}`}> {currentUser.first_name}</Link></li>
             </>
           ) : (
             <>
