@@ -39,6 +39,8 @@ class CampaignShow extends Component {
 
   handleDonationSubmit = e => {
     e.preventDefault();
+// console.log("here");
+// debugger
 
     if (
       this.props.user &&
@@ -79,7 +81,7 @@ class CampaignShow extends Component {
   }
 
   render() {
-    console.log("rendinere",this.props.selectedCampaign);
+    console.log("rendinere",this.state);
     
     return (
       <div>
@@ -121,7 +123,7 @@ class CampaignShow extends Component {
               </div>
               <div className="right-container">
                 <div className="donation-box">
-                  <form onSubmit={e => this.props.handleDonationSubmit(e)}>
+                  <form onSubmit={e => this.handleDonationSubmit(e)}>
                     <h3>Donate</h3>
                     {this.state.error ? (
                   <div>

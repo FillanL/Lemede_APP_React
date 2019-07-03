@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import CampaignCard from "./CampaignCard";
 import { randomEight } from "../Actions/campaignsActions";
 import { selectCampaign } from "../Actions/campaignsActions";
-import '../CssContainer/RecomendedCampaigns.css'
+import "../CssContainer/RecomendedCampaigns.css";
 
 class RecomendedCampaigns extends Component {
   render() {
@@ -13,26 +13,28 @@ class RecomendedCampaigns extends Component {
     return (
       <>
         <h2>Recomended Campaigns</h2>
-      <div className="random-campaign">
-        {this.props.RandCampaigns ? (
-          <>
-            {this.props.RandCampaigns.map(campaign => {
-              if (rando.includes(campaign.id)) {
-                // console.log(campaign);
+        <div className="random-campaign">
+          {this.props.RandCampaigns ? (
+            <>
+              {this.props.RandCampaigns.filter(campaign => {
+                return rando.includes(campaign.id);
+              }).map(matchingCamp => {
                 return (
                   <Link
-                    onClick={() => this.props.selectCampaign(campaign.id)}
-                    key={campaign.id}
-                    to={`/campaign/${campaign.id}`}
+                    onClick={() => this.props.selectCampaign(matchingCamp.id)}
+                    key={matchingCamp.id}
+                    to={`/campaign/${matchingCamp.id}`}
                   >
-                    <CampaignCard key={campaign.id} campaign={campaign} />
+                    <CampaignCard
+                      key={matchingCamp.id}
+                      campaign={matchingCamp}
+                    />
                   </Link>
                 );
-              }
-            })}
-          </>
-        ) : null}
-      </div>
+              })}
+            </>
+          ) : null}
+        </div>
       </>
     );
   }
@@ -44,5 +46,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { randomEight,selectCampaign }
+  { randomEight, selectCampaign }
 )(RecomendedCampaigns);

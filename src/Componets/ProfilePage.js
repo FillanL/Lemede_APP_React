@@ -22,10 +22,10 @@ class ProfilePage extends Component {
       ids.push(camp.campaign_id)
     );
 
-    this.props.campaigns.map(campaign => {
-      if (ids.includes(campaign.id)) {
-        campNames.push(campaign);
-      }
+    this.props.campaigns.filter(campaign => {
+      return ids.includes(campaign.id)
+    }).map(matchingCamps=>{
+      return campNames.push(matchingCamps);
     });
     return campNames;
   };
@@ -37,24 +37,35 @@ class ProfilePage extends Component {
       <>
         {this.props.user && this.props.viewProfile ? (
           <div>
-            <div>
+            <div className="back-ground">
+
+            </div>
+            <div className="profile-pic">
               <img
                 src={this.vistingUser().user_img}
                 alt={this.vistingUser().first_name}
               />
             </div>
-            {this.vistingUser().username}
-            {/* <p>{this.props.user.username}</p> */}
-            <p>{this.vistingUser().first_name}</p>
-            <p>{this.vistingUser().last_name}</p>
-            <p>bio: {this.vistingUser().bio}</p>
-            <p>location: {this.vistingUser().location}</p>
-            <p>profession: {this.vistingUser().profession}</p>
-              collaborated on :{" "}
+            <div className="user-info">
+
+            <span className="profile-username">
+            {this.vistingUser().username.toUpperCase()}
+            </span>
+            {", "}{this.vistingUser().profession.toUpperCase()}
+           
+            
+            <h4>{this.vistingUser().location}</h4>
+            <p className="bio"> Bio: </p>
+            <article>
+            {this.vistingUser().bio}
+            </article>
+            </div>
+            {this.campCollabed().length > 0 ?
+            <>
+             <h3>collaborated on :</h3>
             <div className="collab_campaigns_container">
               {this.campCollabed().map(collabCampaign => (
                 <Link 
-                // onClick={() => this.props.selectCampaign(collabCampaign.id)}
                 key={collabCampaign.id}
                 to={`/campaign/${collabCampaign.id}`}
                 >
@@ -66,6 +77,8 @@ class ProfilePage extends Component {
                 </Link>
               ))}
             </div>
+            </>
+            :<h3>no collaborations yet</h3>}
           </div>
         ) : null}
       </>

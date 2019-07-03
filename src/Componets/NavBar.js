@@ -51,6 +51,7 @@ class NavBar extends Component {
                   <><FontAwesomeIcon icon={['fa', 'wallet']} size="lg" />: loading</>
                 )}
               </li>
+              <li>Welcome, {currentUser.first_name}</li>
             </>
           ) : (
             <>
