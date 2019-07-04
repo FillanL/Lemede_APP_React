@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { selectCampaign, favoriteCampaign } from "../Actions/campaignsActions";
 import { donationToCampaign } from "../Actions/authUserActions";
 import {handleProfileClicked} from '../Actions/getActions'
@@ -96,16 +98,21 @@ class CampaignShow extends Component {
 
             <div className="show-campaign-container">
               <div className="show-content">
-                <h1>{this.props.campaign.title}</h1>
-                  <h3 style={{color: "#465561"}}>{this.props.campaign.category}</h3>
                 {this.props.user ? (
                   !(this.props.campaign.creator.id === this.props.user.id) ? (
-                    <button onClick={() => this.handleFav()}>Favorite</button>
+                    <button className="fav-button" onClick={() => this.handleFav()}>
+                      <FontAwesomeIcon className="fav-heart" style={{color:"lightblue"}} icon={faHeart} size="2x" />
+                    </button>
                   ) : null
                 ) : (
-                  <button onClick={() => this.handleFav()}>Favorite</button>
+                  <button className="fav-button" onClick={() => this.handleFav()}>
+                    <FontAwesomeIcon className="fav-heart" icon={faHeart} size="4x" />
+                  </button>
                 )
                 }
+
+                <h1 style={{textAlign: "center"}}>{this.props.campaign.title}</h1>
+                  <h3 style={{color: "#465561"}}>{this.props.campaign.category}</h3>
                 <p>Location: {this.props.campaign.location}</p>
                
       

@@ -84,3 +84,18 @@
     border-radius: 10px;
     box-shadow: 1px 7px 11px rgba(106, 108, 124, 0.9);
 }
+.fav-button{
+    background-color: transparent;
+    border: none;
+    /* margin-top: -39px; */
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    outline-style: none;
+    
+}
+
+
+.fav-heart:hover{
+    color: red;
+}

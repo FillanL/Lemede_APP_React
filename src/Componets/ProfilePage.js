@@ -57,7 +57,7 @@ class ProfilePage extends Component {
             {", "}{this.vistingUser().profession.toUpperCase()}
            
             <h4>
-              <FontAwesomeIcon style={{color:"lightblue"}} icon={faMapMarkerAlt} size="small" /> 
+              <FontAwesomeIcon style={{color:"lightblue"}} icon={faMapMarkerAlt} size="small" />{" "} 
               {this.vistingUser().location}
             </h4>
             <p className="bio"> Bio: </p>
