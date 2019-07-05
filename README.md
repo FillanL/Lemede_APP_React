@@ -20,3 +20,4 @@ Crowdfunding platform where users can view and donate to innovative ideas.
 
 
 ## Video Demo
+https://www.youtube.com/watch?v=7s8IBmq1fes&t=4s
