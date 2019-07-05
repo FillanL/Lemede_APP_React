@@ -1,5 +1,6 @@
 # Lemede Funding
 Crowdfunding platform where users can view and donate to innovative ideas.
+- backend: https://github.com/FillanL/LemedeApp-Backend 
 
 ## Tech/framework used
 - ReactJS
@@ -9,7 +10,6 @@ Crowdfunding platform where users can view and donate to innovative ideas.
 - Custom CSS using CSS Grid
 
 ## Features
-
 - Ability to browse campaigns without signing up or signing in.
 - Ability to sign up and create an Acccount.
 - Ability for user to sign in.
@@ -18,6 +18,9 @@ Crowdfunding platform where users can view and donate to innovative ideas.
 - Ability to donate to a campaign.
 - Dynamically updating progressBar based on percentage donated to the overall campaign goal.
 
+## setup
+- clone repo
+- npm start
 
 ## Video Demo
 https://www.youtube.com/watch?v=7s8IBmq1fes&t=4s
