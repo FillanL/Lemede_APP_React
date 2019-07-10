@@ -20,6 +20,7 @@ Crowdfunding platform where users can view and donate to innovative ideas.
 
 ## setup
 - clone repo
+- npm install
 - npm start
 
 ## Video Demo
